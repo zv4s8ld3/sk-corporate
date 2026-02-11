@@ -1,0 +1,161 @@
+---
+import Layouts from "../layouts/Layouts.astro";
+import Header from "../components/Project/Header.astro";
+import Footer from "../components/Project/Footer.astro";
+import { Image } from "astro:assets";
+import "../styles/front.css";
+import SectionHeaderTitle2 from "../components/Project/SectionHeaderTitle2.astro";
+
+import headerBusinessImg from "../assets/images/common/header_business.webp";
+import headerArrowImg from "../assets/images/common/header_arrow.webp";
+import ja from "../locales/ja/translation.json";
+import en from "../locales/en/translation.json";
+import ko from "../locales/ko/translation.json";
+
+const locales = { ja, en, ko };
+type Locale = keyof typeof locales;
+
+const url = new URL(Astro.request.url);
+const params = Object.fromEntries(url.searchParams.entries());
+const queryLang = params.lang as Locale;
+const locale: Locale = locales[queryLang] ? queryLang : "ja";
+const t = locales[locale];
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/common/*.webp',
+{
+  eager: true,
+  import: "default",
+});
+
+const business = [
+  {
+    title: t.business.title_list_1,
+    img: "business1.webp",
+    comments: t.business.comments_list_1,
+  },
+  {
+    title: t.business.title_list_2,
+    img: "business2.webp",
+    comments: t.business.comments_list_2,
+  },
+  {
+    title: t.business.title_list_3,
+    img: "business3.webp",
+    comments: t.business.comments_list_3,
+  },
+];
+---
+
+<Layouts title={t.common.layout_title}>
+  <Header t={t} locale={locale} />
+  <main>
+<div class="relative overflow-hidden">
+  <SectionHeaderTitle2 title={t.business.layout_title} subTitle="business">
+    <span
+      slot="default"
+      data-animation="slideLeft"
+      class="text-white block mt-8 md:mt-0 md:mb-14 leading-relaxed whitespace-pre-wrap translate-y-4 md:translate-y-8"
+      >{t.business.content_title}</span
+    >
+    <Image
+      slot="img"
+      src={headerBusinessImg}
+      alt=""
+      class="max-h-full h-full w-auto object-cover ml-auto my-auto relative z-10"
+      data-animation="slideRight"
+    />
+  </SectionHeaderTitle2>
+  
+  <Image
+    src={headerArrowImg}
+    alt=""
+    class="absolute top-[25%] right-[10%] -translate-y-1/2 translate-x-1/3 z-0 w-[56%] h-auto"
+    data-animation="slideLeft"
+  />
+</div>
+
+    <section class="py-10 md:py-12 front-container mx-auto max-w-[1200px] px-[4%] bg-[#F6F6F6]">
+      <h2 class="section-title mb-8" data-animation="slideUp">
+        <span class="capitalize">Mobile App</span>
+        <span class="lowercase">development</span>
+      </h2>
+
+      <p class="[--border-position:6rem] border-text ml-[calc(var(--border-position)+1rem)]">
+        <span data-animation="slideUp">{t.business.sub_title_list}</span>
+      </p>
+	  
+      <div class="mt-8 grid gap-y-20">
+        {
+          business.map((el, i) => {
+            const imagePath = `../assets/images/common/${el.img}`;
+            const src = images[imagePath];
+           
+            return (
+              <div class="grid md:grid-cols-2 gap-x-20 items-start">
+                <div class="w-full">
+                  {src ? (
+                    <Image
+                      src={src}
+                     class="w-full h-auto object-cover"
+                      alt={el.title}
+                      data-animation="slideDown"
+                    />
+                  ) : (
+                    <div class="bg-gray-100 aspect-video flex items-center justify-center">Image Not Found</div>
+                  )}
+                </div>
+
+                <div class="relative">
+                  <span class="block text-[#DA8B54] text-lg mb-4">
+                    {(i + 1).toString().padStart(2, "0")}
+                  </span>
+
+                  <h3
+                    class="font-bold whitespace-pre-wrap text-[clamp(1.125rem,0.931rem+0.828vw,1.5rem)] mb-7 leading-tight"
+                    data-animation="slideLeft"
+                  >
+                    {el.title}
+                  </h3>
+
+                  <p
+                    class="whitespace-pre-wrap leading-relaxed text-gray-700"
+                    data-animation="slideLeft"
+                  >
+                    {el.comments}
+                  </p>
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </section>
+  </main>
+  <Footer t={t} locale={locale} />
+</Layouts>
+
+<style is:global>
+  .main-header a, .main-header span, .main-header div {
+    color: #ffffff !important;
+  }
+  header .lang-switcher,
+  header .current-lang,
+  header [class*="icon"] {
+    color: #ffffff !important;
+  }
+  .main-header.is-scrolled {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+  }
+  .header-center a.text-gray-400 {
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-weight: normal !important;
+  }
+  .header-center a.font-bold {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    border-bottom: 2px solid #ffffff !important;
+  }
+</style>
+
+
+
+<script src="../lib/front.ts"></script>

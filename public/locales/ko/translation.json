@@ -1,0 +1,87 @@
+{
+  "about": {
+    "layout_title": "우리가 실현하는 것",
+    "content_title": "우리 Shop Kloset이 실현하는 것은, 사람들의 숨겨진 가능성을 이끌어\n보다 풍부한 인생을 만드는 것.\n모든 사람들이 미소 넘치는 세상에 하기 위해 일절 노력을 아끼지 않고,\n가능성에 넘치는 일본 사회를 창출합니다.",
+    "vision_comments": "다양한 현대의 과제를 앱을 통해 한 사람 한 사람의 삶을 풍요롭게 한다",
+    "mission_comments": "인생은 훌륭하고 아름답습니다.",
+    "value_comments": "사람, 생명 있는 것 모두가 행복해지는 더 나은 사회를 창출하기 위해,\n우리는 현 상황에 안주하지 않고, 일체의 타협하지 않고, 항상 한 걸음 앞을 생각하고 행동해,\n구현화해 갑니다."
+  },
+  "business": {
+    "layout_title": "우리가 지금까지 쌓아온 단어의 힘으로\n사람들의 잠재력을 극대화합니다",
+    "content_title": "기술의 급격한 성장과 함께 편리한 세상이 되었습니다.\n그 반면, 마음이 피곤한 분들이 증가하고 있는 것도 사실입니다.\n우리는 여러분의 마음이 안정되고 미소를 끊지 않는 나날을 만들기 위해\n모든 것에 계속 도전합니다.",
+    "sub_title_list": "모바일 앱 개발 사업",
+    "title_list_1": "자사 서비스\n애플리케이션의 기획·운영",
+    "title_list_2": "애플리케이션 기획",
+    "title_list_3": "애플리케이션 운영",
+    "comments_list_1": "Shop Kloset은 일본 사회에 존재하는 다양한 과제를 해결하고 싶다는 생각에서 플랫폼 사업을 전개하고 있습니다.\n유저 퍼스트를 내걸어 모든 고객에게 가치있는 서비스를 제공합니다.",
+    "comments_list_2": "당사에서는 애플리케이션의 기획, 운영을 실시하고 있습니다. 기획에서는 과제를 도출하고, 고민을 안고 있는 고객의 시점에 서서 과제를 해결하기 위한 애플리케이션 유저빌리티 향상을 도모합니다.",
+    "comments_list_3": "운영에서는 자사 서비스를 이용하는 고객의 만족도를 극대화하기 위한 분석을 실시하고 있습니다.\n고객의 목소리와 데이터를 바탕으로 서비스의 품질 향상을 도모합니다."
+  },
+  "common": {
+    "layout_title": "Shop Kloset Inc.",
+    "contact": "〒150-0041 도쿄도 시부야구 진난 1-16-7",
+    "required": "필수",
+    "title_about": "Shop Kloset Inc. | 우리에 관하여",
+    "title_business": "Shop Kloset Inc. | 사업 내용",
+    "title_company": "Shop Kloset Inc. | 회사 정보",
+    "title_contact": "Shop Kloset Inc. | 문의하기",
+    "title_faq": "Shop Kloset Inc. | 자주 묻는 질문"
+  },
+  "company": {
+    "layout_title": "Shop Kloset Inc.",
+    "sub_title_overview": "회사 개요",
+    "sub_title_service": "제공 중인 서비스",
+    "field_name": "명칭",
+    "field_money": "자본금",
+    "field_contact": "본사 소재지",
+    "field_content": "사업 내용",
+    "content_money": "10,000,000(JPY)",
+    "content_contact": "〒150-0041 도쿄도 시부야구 진난 1가 16번 7호",
+    "content_business": {
+      "content_1": "앱 「ShopKloset」 각종 운영·관리",
+      "content_2": "상표 등록 완료",
+      "content_4": "전기통신사업 신고 완료"
+    },
+    "field_tel": "전화번호",
+    "content_tel": "03-3463-3818",
+    "field_mail": "이메일 주소",
+    "content_mail": "info@shopkloset.com",
+    "content_service": "하이 브랜드 전문 앱\n하이 브랜드 상품·시계·주얼리를 당신이 있는 곳에서 전 세계로 판매할 수 있습니다",
+    "name_app": "「ShopKloset」"
+  },
+  "privacy_policy": {
+    "content1": "개인정보 처리방침은 ",
+    "content2": "여기",
+    "content3": "를 확인해 주십시오."
+  },
+  "home": {
+    "layout_title": "모두가 열심히 해온 증거,\n\"훈장\"을 자랑스럽게 생각하는 사회를",
+    "sub_title": "Dream the best dream<br />with the best team",
+    "title_about": "우리가 실현하는 것",
+    "title_business": "우리가 지금까지 쌓아온 단어의 힘으로\n사람들의 잠재력을 극대화합니다",
+    "title_company": "Shop Kloset Inc.",
+    "content_about": "우리 Shop Kloset이 실현하는 것은, 사람들의 숨겨진 가능성을 이끌어 보다 풍부한 인생을 만드는 것. 모든 사람들이 미소 넘치는 세상에 하기 위해 일절 노력을 아끼지 않고, 가능성에 넘치는 일본 사회를 창출합니다.",
+    "content_business": "기술의 급격한 성장과 함께 편리한 세상이 되었습니다. 그 반면, 마음이 피곤한 분들이 증가하고 있는 것도 사실입니다. 우리는 여러분의 마음이 안정되고 미소를 끊지 않는 나날을 만들기 위해 모든 것에 계속 도전합니다.",
+    "content_company": "회사 개요"
+  },
+  "contact": {
+    "layout_title": "문의하기",
+    "inquiry_form": "문의 폼",
+    "your_name": "성함",
+    "your_name_placeholder": "예) 다나카 사쿠라코",
+    "email": "이메일 주소",
+    "email_placeholder": "예) xxx@shopkloset.com",
+    "content_of_inquiry": "문의 내용",
+    "seclect_content_of_inquiry": "내용 선택",
+    "comments": "자유 기입란・질문 등",
+    "comments_placeholder": "내용을 입력해 주세요",
+    "accept": "이용약관 및 개인정보 처리방침에 동의함",
+    "send": "전송하기",
+    "options": [
+      "로그인 불가",
+      "계정 정지에 관하여",
+      "결제에 관하여",
+      "기타"
+    ]
+  }
+}

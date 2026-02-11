@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  title: string;
+  subTitle: string;
+}
+
+const { title, subTitle } = Astro.props;
+---
+
+<div
+  class="page-title bg-black h-[35svh] md:h-screen md:max-h-[314px] header-bg-none relative mt-10"
+>
+  <div class="absolute bottom-0 left-0 front-container right-0 mx-auto pl-4 md:pl-0">
+    <h2
+      class="text-white font-bold text-[clamp(1.5rem,0.972rem+2.254vw,3rem)]"
+    >
+      {title}
+    </h2>
+
+    <slot />
+
+    <p
+      class="text-white font-bold font-mont uppercase large-logo opacity-[0.85] leading-normal md:leading-none"
+    >
+      {subTitle}
+    </p>
+  </div>
+
+  <slot name="img">
+    {/* 
+    */}
+  </slot>
+</div>
+
+<style>
+  .large-logo {
+    font-size: clamp(4rem, 1.711rem + 9.765vw, 10.5rem);
+  }
+</style>

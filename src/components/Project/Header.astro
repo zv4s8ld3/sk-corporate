@@ -1,0 +1,193 @@
+---
+import NavItems from "../Parts/NavItems.astro";
+
+const { t, locale } = Astro.props;
+const l = (path: string) => locale === 'ja' ? path : `${path}?lang=${locale}`;
+
+const { pathname } = Astro.url;
+const isHome = pathname === "/" || pathname === "";
+const defaultColor = isHome ? "#654321" : "#5C524A";
+
+const switchL = (lang: string) => `${pathname}?lang=${lang}`;
+---
+
+<header class="main-header w-full fixed top-0 left-0 z-50 pt-6 pb-2" id="main-header">
+  <div class="header-inner flex justify-between items-center max-w-3xl lg:max-w-4xl mx-auto px-6">
+    
+    <div class="header-left">
+      <a href={l("/")} class="flex items-center">
+        <h1>
+          <img src="/images/Shopkloset_Logo.svg" alt="Shop Kloset Inc" class="company-logo w-[15rem]" />
+        </h1>
+      </a>
+    </div>
+
+    <input type="checkbox" id="menuToggle" class="hidden" />
+
+    <nav class="header-center hidden lg:flex flex-1 justify-center items-center gap-6">
+      <NavItems clr={defaultColor} t={t} locale={locale} />
+      
+      <div class="flex gap-2 ml-4 text-[13px] border-l pl-4 border-gray-300 uppercase font-sans">
+        <a href={switchL('ja')} class={locale === 'ja' ? "font-bold text-black" : "text-gray-400 hover:text-black"}>JP</a>
+        <a href={switchL('en')} class={locale === 'en' ? "font-bold text-black" : "text-gray-400 hover:text-black"}>EN</a>
+        <a href={switchL('ko')} class={locale === 'ko' ? "font-bold text-black" : "text-gray-400 hover:text-black"}>KO</a>
+      </div>
+    </nav>
+
+<div class="header-right flex items-center gap-3 lg:hidden">
+  <div class="flex gap-2 text-[12px] ml-4 uppercase font-sans border-r pr-3 border-gray-300">
+    <a href={switchL('ja')} class={locale === 'ja' ? "font-bold text-black" : "text-gray-400"}>JP</a>
+    <a href={switchL('en')} class={locale === 'en' ? "font-bold text-black" : "text-gray-400"}>EN</a>
+    <a href={switchL('ko')} class={locale === 'ko' ? "font-bold text-black" : "text-gray-400"}>KO</a>
+  </div>
+
+  <label for="menuToggle" class="menuBtn w-10 h-10 flex items-center justify-center bg-gray-200/40 rounded-full cursor-pointer relative z-[110]">
+    <div class="btn-inner relative w-5 h-4">
+      <span class="line-1"></span>
+      <span class="line-2"></span>
+    </div>
+  </label>
+</div>
+
+    <div class="sp-menu-modal">
+      <nav class="sp-nav text-center">
+        <div class="flex flex-col gap-8 text-2xl mb-12">
+          <NavItems clr="#fff" t={t} locale={locale} />
+        </div>
+        <div class="flex justify-center gap-6 text-sm text-white/60 uppercase">
+          <a href={switchL('ja')} class={locale === 'ja' ? "text-white font-bold" : ""}>JP</a>
+          <a href={switchL('en')} class={locale === 'en' ? "text-white font-bold" : ""}>EN</a>
+          <a href={switchL('ko')} class={locale === 'ko' ? "text-white font-bold" : ""}>KO</a>
+        </div>
+      </nav>
+    </div>
+
+  </div>
+  
+  
+</header>
+
+<style>
+  .main-header {
+    color: var(--header-text-color, #654321);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+  }
+
+  .main-header.is-scrolled {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+  :global(body.home) .main-header.is-scrolled {
+    background-color: #ffffff !important;
+  }
+ 
+.header-center a.font-bold {
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 2px;
+}
+
+:global(.main-header.is-scrolled) .header-center a.font-bold {
+  border-bottom-color: currentColor;
+}
+
+.sp-nav a.font-bold {
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 2px;
+}
+.header-right a.font-bold {
+  border-bottom: 1px solid currentColor;
+}
+  
+  .menuBtn span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transition: all 0.3s ease-in-out;
+  }
+  .line-1 { top: 2px; }
+  .line-2 { top: 12px; }
+  #menuToggle:checked ~ .header-right .line-1 { transform: translateY(5px) rotate(45deg); }
+  #menuToggle:checked ~ .header-right .line-2 { transform: translateY(-5px) rotate(-45deg); }
+
+  .sp-menu-modal {
+    position: fixed;
+    inset: 0;
+    background: #000000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #menuToggle:checked ~ .sp-menu-modal { opacity: 1; visibility: visible; }
+  body:has(#menuToggle:checked) { overflow: hidden; }
+
+  :global(.li-item) {
+    display: block !important;
+    position: relative !important;
+    overflow: hidden !important;
+    height: 24px !important;
+    line-height: 24px !important;
+  }
+
+  :global(.li-origin),
+  :global(.li-clone) {
+    display: block !important;
+    height: 24px !important;
+    --tw-translate-y: 0px !important; 
+    --tw-transform: none !important;
+    transition: transform 0.3s ease-in-out !important;
+  }
+
+  :global(.li-origin) {
+    position: relative !important;
+    transform: translateY(0px) !important;
+  }
+
+  :global(.li-clone) {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    transform: translateY(24px) !important;
+  }
+
+  :global(.group:hover .li-origin) {
+    transform: translateY(-24px) !important;
+  }
+
+  :global(.group:hover .li-clone) {
+    transform: translateY(0px) !important;
+  }
+
+.header-right a {
+  transition: color 0.3s ease;
+}
+
+.main-header:not(.is-scrolled) .header-right a.font-bold {
+  color: #654321;
+}
+
+.main-header.is-scrolled .header-right a.font-bold {
+  color: #000000;
+}
+</style>
+
+<script>
+  const header = document.getElementById('main-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header?.classList.add('is-scrolled');
+    } else {
+      header?.classList.remove('is-scrolled');
+    }
+  });
+</script>

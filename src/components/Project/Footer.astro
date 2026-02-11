@@ -1,0 +1,38 @@
+---
+interface Props {
+  t: any;
+  locale: string;
+}
+
+const { t, locale } = Astro.props;
+const currentYear = new Date().getFullYear();
+
+const l = (path: string) => {
+  return locale === "ja" ? path : `${path}?lang=${locale}`;
+};
+---
+<footer class="w-full bg-white text-[#5C524A] pt-4 pb-4 md:pb-14 px-6 border-t border-gray-100">
+  <div class="container mx-auto max-w-5xl">
+    <div class="flex flex-col md:flex-row items-center justify-center gap-x-10 gap-y-4">
+      
+      <div class="flex-shrink-0">
+        <a href={l("/")} class="hover:opacity-70 transition-opacity flex items-center">
+          <img src="/images/sk_logomark.webp" alt="Shop Kloset Inc." class="h-8 w-auto" />
+        </a>
+      </div>
+
+      <a 
+        href={l("/privacypolicy")} 
+        class="text-[10px] text-gray-400 hover:text-[#DA8B54] transition-colors underline decoration-gray-200"
+      >
+        {/* 固定テキストから翻訳データに変更 */}
+        {t.common.privacy_policy || "Privacy Policy"}
+      </a>
+
+      <div class="text-[10px] text-gray-400 uppercase tracking-[0.2em]">
+        &copy; {currentYear} Shop Kloset Inc.
+      </div>
+      
+    </div>
+  </div>
+</footer>

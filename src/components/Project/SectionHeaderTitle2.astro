@@ -1,0 +1,48 @@
+---
+interface Props {
+  title: string;
+  subTitle: string;
+  titleClass?: string;
+}
+
+const { title, subTitle, titleClass } = Astro.props;
+---
+
+<div class="page-title bg-black h-screen max-h-[533px] header-bg-none relative">
+  <div class="absolute bottom-0 left-0 front-container right-0 mx-auto pl-4 md:pl-0 z-20">
+    <h2
+      class:list={[
+        "text-white whitespace-pre-wrap font-bold mb-0 relative z-20",
+        titleClass
+          ? titleClass
+          : "text-[clamp(1.125rem,0.729rem+1.69vw,2.25rem)]",
+      ]}
+      set:html={title}
+    />
+    
+    <div class="relative z-20">
+      <slot />
+    </div>
+
+    <p
+      class="text-white font-bold font-mont uppercase large-logo opacity-[0.85] leading-normal md:leading-none pointer-events-none"
+    >
+      {subTitle}
+    </p>
+  </div>
+
+  <slot name="img" />
+</div>
+
+<style>
+  .large-logo {
+    font-size: clamp(4rem, 1.711rem + 9.765vw, 10.5rem);
+    margin-top: 1.5rem; 
+  }
+
+  @media (min-width: 768px) {
+    .large-logo {
+      margin-top: -0.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,42 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="54.797"
+  height="44"
+  viewBox="0 0 56 41"
+  class="arrow-icon"
+  stroke="currentColor"
+>
+  <g transform="translate(-891.203 -1118)">
+    <g transform="translate(-6954 -2910)">
+      <path
+        d="M21,1a20.006,20.006,0,0,0-7.785,38.429A20.005,20.005,0,0,0,28.785,2.571,19.874,19.874,0,0,0,21,1m0-1A21,21,0,1,1,0,21,21,21,0,0,1,21,0Z"
+        transform="translate(7858 4028)"
+      ></path>
+      <g transform="translate(7863.209 4036.208)">
+        <path
+          d="M25.136,20.21H-12.32v-1H23.929l-5.357-5.357.707-.707,6.21,6.21a.5.5,0,0,1-.354.854Z"
+          transform="translate(-5.686 -6.564)"
+        ></path>
+      </g>
+    </g>
+  </g>
+</svg>
+
+<style>
+  .arrow-icon {
+    @apply fill-transparent;
+    stroke-dasharray: 1800;
+    stroke-dashoffset: 0;
+    &.onActive {
+      animation: stroke 3s ease-in-out forwards;
+    }
+  }
+  @keyframes stroke {
+    0% {
+      stroke-dashoffset: 1800;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+</style>

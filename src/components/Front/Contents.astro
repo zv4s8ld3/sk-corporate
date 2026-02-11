@@ -1,0 +1,126 @@
+---
+// src/components/Front/Contents.astro
+import { Image } from 'astro:assets';
+import ViewMoreBtn from "../Parts/ViewMoreBtn.astro";
+
+const url = new URL(Astro.request.url);
+const urlLocale = url.searchParams.get('lang') || 'ja';
+
+const { t: propsT, locale: propsLocale } = Astro.props;
+const locale = urlLocale; 
+const t = propsT;
+
+const l = (path: string) =>
+  locale === 'ja' ? path : `${path}?lang=${locale}`;
+
+import image1 from "../../assets/images/front/image1.webp";
+import image2 from "../../assets/images/front/image2.webp";
+import arrow1 from "../../assets/images/front/arrow1.webp";
+import arrow2 from "../../assets/images/front/arrow2.webp";
+---
+
+<div class="contents-wrapper pt-32 pb-6 md:pt-32 md:pb-6 relative overflow-hidden">
+  <section class="front-container lg:mb-24" id="about">
+    <div class="relative">
+      <Image
+        src={image1}
+        alt=""
+        class="section-img left z-20"
+        data-animation="slideLeft"
+      />
+      <div class="contents-box left" data-animation="slideUp">
+        <div class="message-inner max-w-[400px] ml-auto">
+          <h2 class="section-title mb-7" data-animation="slideRight">about</h2>
+          <p class="border-text mb-8">
+            <span data-animation="slideLeft">{t.home.title_about}</span> </p>
+          <p class="leading-loose mb-7" data-animation="slideUp">
+            {t.home.content_about} </p>
+          <ViewMoreBtn href={l("/about")} />
+        </div>
+      </div>
+    </div>
+    <Image
+      src={arrow1}
+      alt=""
+      class="absolute top-[13%] -left-[50%] -z-10 -translate-y-1/2"
+      data-animation="slideLeft"
+    />
+  </section>
+
+  <section class="front-container md:mb-28" id="business">
+    <div class="relative">
+      <Image
+        src={image2}
+        alt=""
+        class="section-img right z-20"
+        data-animation="slideRight"
+      />
+      <div class="contents-box right" data-animation="slideUp">
+        <div class="message-inner max-w-[30rem] ml-auto">
+          <h2 class="section-title mb-7" data-animation="slideLeft">business</h2>
+          <p class="border-text mb-10">
+            <span class="inline-block" data-animation="slideRight">
+              {t.home.title_business} </span>
+          </p>
+          <p class="leading-loose mb-8" data-animation="slideDown">
+            {t.home.content_business} </p>
+          <ViewMoreBtn href={l("/business")} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#F6F6F6] pt-20 md:py-20" id="company">
+    <Image
+      src={arrow2}
+      alt=""
+      class="mix-arrow"
+      data-animation="slideRight"
+    />
+    <div class="front-container z-10">
+      <h2 class="section-title mb-7 px-4 md:px-0" data-animation="slideUp">company</h2>
+      <p class="border-text text-base sm:text-lg mb-16 translate-x-4">
+        <span data-animation="slideLeft">{t.home.title_company}</span> </p>
+      <div class="grid grid-cols-1">
+<div class="overview" data-animation="slideUp">
+  <h3 class="text-36 font-mont font-bold">overview</h3>
+  <p class="text-lg">{t.home.content_company}</p>
+  <div class="mt-8 flex justify-center">
+    <ViewMoreBtn href={l("/company")}>
+      See Details
+    </ViewMoreBtn>
+  </div>
+</div>	  
+    </div>
+  </section>
+</div>
+
+<style>
+@reference "tailwindcss";
+  .section-img {
+    @apply w-full h-auto lg:absolute top-[80px] my-auto visible inline-block;
+    &.right { @apply right-0 lg:max-w-[384px]; }
+    &.left { @apply left-0 lg:max-w-[468px]; }
+  }
+  .contents-box {
+    @apply bg-[#F6F6F6] min-h-[35rem] w-full lg:max-w-[766px] py-[80px] grid justify-start items-center px-4; 
+    &.left { @apply lg:pl-[283px] ml-auto; }
+    &.right { @apply lg:pl-[81px] mr-auto; }
+  }
+  .border-text {
+    @apply relative text-lg font-bold [--border-position:2rem] md:[--border-position:4.875rem] ml-[calc(var(--border-position)+1rem)] md:ml-[calc(var(--border-position)+5%)];
+    &::before {
+      @apply content-[""] w-[var(--border-position)] h-px bg-[#020202] absolute -left-[calc(var(--border-position)+1rem)] top-0 bottom-0 m-auto;
+    }
+  }
+  :is(.overview) {
+    @apply grid place-content-center h-[370px] w-full bg-center max-h-[370px] relative text-white text-center uppercase overflow-hidden;
+  }
+  .overview {
+    background-image: url('/images/image3.webp');
+    @apply bg-[#020202]/40 bg-cover bg-blend-darken;
+  }
+  .mix-arrow {
+    @apply absolute bottom-[2.5rem] -right-[26rem] object-cover mix-blend-screen scale-[0.85];
+  }
+</style>

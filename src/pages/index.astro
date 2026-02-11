@@ -1,0 +1,84 @@
+---
+import Contents from "../components/Front/Contents.astro";
+import Firstview from "../components/Front/Firstview.astro";
+import Footer from "../components/Project/Footer.astro";
+import Header from "../components/Project/Header.astro";
+import Layouts from "../layouts/Layouts.astro";
+import "../styles/front.css";
+
+import ja from "../locales/ja/translation.json";
+import en from "../locales/en/translation.json";
+import ko from "../locales/ko/translation.json";
+
+const locales = { ja, en, ko };
+type Locale = keyof typeof locales;
+
+const url = new URL(Astro.request.url);
+const params = Object.fromEntries(url.searchParams.entries());
+const queryLang = params.lang as Locale;
+
+const locale: Locale = locales[queryLang] ? queryLang : "ja";
+const t = locales[locale];
+---
+
+<Layouts title={t.home.layout_title}>
+  <Header t={t} locale={locale} />
+  <div role="main" class="main">
+    <Firstview t={t} locale={locale} />
+    <Contents t={t} locale={locale} />
+  </div>
+  <Footer t={t} locale={locale} />
+
+</Layouts>
+
+<style is:global>
+/* ヘッダー透過 */
+body.home #main-header {
+  background: transparent;
+}
+
+/* =========================
+   スマホ（〜767px）
+   ========================= */
+body.home .firstview {
+  position: relative;
+  width: 100%;
+  height: 65svh;
+  min-height: 605px;
+  max-height: 700px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center top;
+  background-image: url('/images/sp_hero.webp');
+}
+
+/* =========================
+   タブレット（768〜1023px）
+   ========================= */
+@media (min-width: 768px) and (max-width: 1023px) {
+  body.home .firstview {
+    background-image: url('/images/tablet_hero.webp');
+    background-position: center 30%;
+    height: 60svh;
+    min-height: 670px;
+    max-height: 750px;
+  }
+}
+
+/* =========================
+   PC（1024px〜）
+   ========================= */
+@media (min-width: 1024px) {
+  body.home .firstview {
+    background-image: url('/images/pc_hero.webp');
+    background-position: center 50%;
+    height: 55svh;
+    max-height: 520px;
+    min-height: 865px;
+  }
+}
+
+
+</style>
+<script src="../lib/front.ts"></script>
+

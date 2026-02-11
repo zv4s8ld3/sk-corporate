@@ -1,0 +1,16 @@
+{
+  "useNow": "https://shopkloset.com",
+  "company": {
+    "名称": "Shop Kloset Inc.",
+    "資本金": "10,000千円",
+    "本社所在地": "〒150-0041<span class=\"hidden md:inline-block w-4\"></span><br class=\"spOnly\" />東京都渋谷区神南1丁目16番7号",
+    "事業内容": [
+      "アプリ<br />「ShopKloset」各種運営・管理",
+      "各種〇〇運営・管理"
+    ]
+  },
+  "MicroCMS": {
+    "API_KEY": "DrDkI41dlfrQ8nsKBrvCeyHXbKUxcBwhnVQe",
+    "ENDPOINT": "8vh1jvxfhi"
+  }
+}

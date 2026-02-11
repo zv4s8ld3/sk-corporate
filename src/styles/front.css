@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------
+  レイアウト・基本設定
+------------------------------------------------------------ */
+
+/* 各セクションの共通コンテナ（中央寄せと横幅制限） */
+.front-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
+/* セクションの大きな英語タイトル */
+.section-title {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 2.324rem + 0.751vw, 3rem);
+  letter-spacing: 0.2rem;
+  font-family: var(--font-mont);
+}
+
+/* 英語フォント指定用クラス */
+.font-mont {
+  font-family: var(--font-mont);
+}
+
+/* ------------------------------------------------------------
+  デザインパーツ
+------------------------------------------------------------ */
+
+/* テキスト横の装飾ボーダー（Contents.astroなどで使用） */
+.border-text {
+  position: relative;
+  font-size: 1.125rem;
+  font-weight: 700;
+  --border-position: 2rem;
+  margin-left: calc(var(--border-position) + 1rem);
+}
+
+@media (min-width: 768px) {
+  .border-text {
+    --border-position: 4.875rem;
+    margin-left: calc(var(--border-position) + 5%);
+  }
+}
+
+.border-text::before {
+  content: "";
+  width: var(--border-position);
+  height: 1px;
+  background-color: #020202;
+  position: absolute;
+  left: calc((var(--border-position) + 1rem) * -1);
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+/* ------------------------------------------------------------
+  アニメーション
+------------------------------------------------------------ */
+
+.slideUp { clip-path: inset(100% 0 0 0); }
+.slideUp.onActive { animation: slideUp 0.75s ease-in-out forwards; }
+@keyframes slideUp { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0); } }
+
+.slideLeft { clip-path: inset(0 100% 0 0); }
+.slideLeft.onActive { animation: slideLeft 0.75s ease-in-out forwards; }
+@keyframes slideLeft { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+
+.slideRight { clip-path: inset(0 0 0 100%); }
+.slideRight.onActive { animation: slideRight 0.75s ease-in-out forwards; }
+@keyframes slideRight { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0); } }
+
+.slideDown { clip-path: inset(0 0 100% 0); }
+.slideDown.onActive { animation: slideDown 0.75s ease-in-out forwards; }
+@keyframes slideDown { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
+
+/* ------------------------------------------------------------
+  ヘッダー制御（スクロール時の背景）
+------------------------------------------------------------ */
+
+header.is-active {
+  background-color: rgba(0, 0, 0, 0.8) !important; /* 透過の黒 */
+  backdrop-filter: blur(8px);
+  transition: background-color 0.3s ease;
+}
+
+header.is-active::before,
+header.is-active::after {
+  background-color: transparent !important;
+}

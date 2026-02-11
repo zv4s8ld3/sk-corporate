@@ -1,0 +1,140 @@
+---
+// 1. 自前の読み込み処理を削除し、Propsで受け取る設定に変更
+interface Props {
+  t: any;
+  hyperForm: string;
+}
+
+const { t, hyperForm } = Astro.props;
+
+// オプションリストをJSONから取得
+const options = t.contact.options || [];
+---
+
+<form action={hyperForm} method="post">
+  <fieldset class="container max-w-[620px] mx-auto">
+    <legend class="text-2xl">{t.contact.inquiry_form}</legend>
+    <div class="form-control">
+      <label for="your_name" class="req text-xl">
+        {t.contact.your_name}
+        <span class="ml-4 text-[#DA8B54]">{t.common.required}</span>
+      </label>
+      <input
+        type="text"
+        name="your_name"
+        id="your_name"
+        placeholder={t.contact.your_name_placeholder}
+        required
+      />
+    </div>
+    <div class="form-control">
+      <label for="email" class="req text-xl">
+        {t.contact.email}
+        <span class="ml-4 text-[#DA8B54]">{t.common.required}</span>
+      </label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder={t.contact.email_placeholder}
+        required
+      />
+    </div>
+    <div class="form-control">
+      <label for="category" class="text-xl">
+        {t.contact.content_of_inquiry}
+      </label>
+      <label class="select-label">
+        <select class="select" name="category" id="category">
+          <option value="" disabled selected>
+            {t.contact.seclect_content_of_inquiry}
+          </option>
+          {
+            options.map((el: string) => (
+              <option value={el} set:text={el} />
+            ))
+          }
+        </select>
+      </label>
+    </div>
+    <div class="form-control">
+      <label for="comments" class="text-xl">{t.contact.comments}</label>
+      <textarea
+        name="comments"
+        id="comments"
+        cols="30"
+        rows="10"
+        placeholder={t.contact.comments_placeholder}
+      ></textarea>
+    </div>
+    <div class="flex justify-center items-center pb-8 md:py-5 gap-2 md:gap-4 -mx-2">
+      <input
+        type="checkbox"
+        id="checkbox"
+        class="w-3 md:w-8 text-xl"
+        required
+      />
+      <label class="text-xl" for="checkbox">{t.contact.accept}</label>
+    </div>
+    <div class="text-center">
+      <button class="submit-btn text-2xl" title="フォームを送信します">
+        {t.contact.send}
+      </button>
+    </div>
+  </fieldset>
+</form>
+
+<style>
+  @reference "../../styles/front.css";
+
+  form {
+    @apply my-16 px-6;
+    input {
+      @apply inline-block p-2 md:p-4;
+    }
+    select {
+      @apply border inline-block py-2 relative;
+    }
+    textarea {
+      @apply py-3 px-4 relative;
+    }
+    label {
+      @apply font-bold;
+    }
+    input,
+    select {
+      @apply min-h-[3rem] p-1 md:p-4;
+    }
+    input,
+    textarea {
+      @apply bg-[#F0F0F0];
+    }
+    input,
+    select,
+    textarea {
+      &:not(input[type="checkbox"]) {
+        @apply appearance-none rounded-md block w-full;
+      }
+    }
+    .form-control {
+      @apply mb-8 grid gap-3;
+    }
+    legend {
+      @apply mb-8 font-bold;
+    }
+    .req {
+      &::after {
+        @apply text-[#DA8B54] ml-4 font-bold;
+      }
+    }
+    .terms-link {
+      @apply text-[#DA8B54] hover:underline font-bold;
+    }
+    .submit-btn {
+      @apply border border-[#DA8B54] rounded-full block py-3 md:py-5 md:w-[70%] text-center bg-[#DA8B54] text-white font-bold mx-auto transition-all duration-300 w-full;
+      &:hover {
+        @apply bg-white text-[#DA8B54];
+      }
+    }
+  }
+</style>

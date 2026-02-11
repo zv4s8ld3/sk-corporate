@@ -1,0 +1,78 @@
+{
+  "about": {
+    "layout_title": "What we will achieve",
+    "content_title": "At Shop Kloset, we aim to bring out people's hidden potential and create a richer life. We will spare no effort to create a world full of smiles for all people, and create a Japanese society overflowing with possibilities.",
+    "vision_comments": "Through apps, we enrich each person's life by addressing various modern challenges.",
+    "mission_comments": "Life is wonderfully beautiful.",
+    "value_comments": "To build a better society where people and all living things can find happiness, we will not rest on past achievements, we will not compromise, we will always look one step ahead, take action, and realize this vision."
+  },
+  "business": {
+    "layout_title": "We use the power of words we have cultivated to maximize people's potential.",
+    "content_title": "Rapid advances in technology have made the world more convenient. However, it is also true that the number of people suffering from mental fatigue is increasing. We will continue to take on every challenge to help people achieve mental stability and live lives that bring smiles to their faces every day.",
+    "sub_title_list": "Mobile App Development Business",
+    "title_list_1": "Our Services: Application Planning and Operations",
+    "title_list_2": "Application Planning",
+    "title_list_3": "Application Operations",
+    "comments_list_1": "Shop Kloset is developing a platform business with the desire to solve various issues in Japanese society. We put the user first and provide valuable services to all our customers.",
+    "comments_list_2": "Our company handles the planning and operation of applications. In our planning, we identify challenges, adopt the perspective of customers facing difficulties, and work to enhance application usability to resolve these issues.",
+    "comments_list_3": "In our operations, we conduct analysis to maximize customer satisfaction when using our services. We strive to improve the quality of our services based on real customer feedback and data."
+  },
+  "common": {
+    "patent_pending": "Patent pending",
+    "layout_title": "Shop Kloset Inc.",
+    "contact": "1-16-7 Jinnan, Shibuya-ku, Tokyo 150-0041",
+    "required": "Required",
+    "nav_home": "Home",
+    "nav_about": "About Us",
+    "nav_business": "Business",
+    "nav_company": "Company",
+    "nav_contact": "Contact",
+    "nav_privacy": "Privacy Policy"
+  },
+  "company": {
+    "sub_title_overview": "Company Overview",
+    "sub_title_service": "Services Currently Offered",
+    "field_name": "Name",
+    "field_money": "Capital",
+    "field_contact": "Headquarters Location",
+    "field_content": "Business Activities",
+    "content_money": "10,000,000 (JPY)",
+    "content_contact": "1-16-7 Jinnan, Shibuya-ku, Tokyo 150-0041",
+    "content_business": {
+      "content_1": "Various operation and management of the platform \"ShopKloset\"",
+      "content_2": "Trademark registered"
+    },
+    "content_service": "TV commercials, trouble consultation site that is hot topic on the net. Whatever your worries, you can consult, chat, and solve your troubles on the comprehensive site!",
+    "name_app": "\"ShopKloset\""
+  },
+  "home": {
+    "layout_title": "Proof that everyone worked hard,\nToward a society where medals can be a source of pride",
+    "sub_title": "Dream the best dream<br />with the best team",
+    "title_about": "What we will achieve",
+    "title_business": "We use the power of words we have cultivated to maximize people's potential.",
+    "title_company": "Company Overview",
+    "content_about": "At Shop Kloset, we aim to bring out people's hidden potential and create a richer life. We will spare no effort to create a world full of smiles for all people, and create a Japanese society overflowing with possibilities.",
+    "content_business": "Rapid advances in technology have made the world more convenient. However, it is also true that the number of people suffering from mental fatigue is increasing. We will continue to take on every challenge to help people achieve mental stability and live lives that bring smiles to their faces every day.",
+    "content_company": "Company Overview"
+  },
+  "contact": {
+    "layout_title": "Contact Us",
+    "inquiry_form": "Inquiry Form",
+    "your_name": "Your Name",
+    "your_name_placeholder": "ex) Sakurako Yamada",
+    "email": "Email Address",
+    "email_placeholder": "ex) xxx@shopkloset.com",
+    "content_of_inquiry": "Inquiry Details",
+    "select_content_of_inquiry": "Select content",
+    "comments": "Free-form field / Questions, etc.",
+    "comments_placeholder": "Enter your question",
+    "accept": "I agree to the Terms of Use and Privacy Policy",
+    "send": "Send",
+    "options": [
+      "I can't log in.",
+      "Regarding Account Suspension",
+      "Regarding Payment",
+      "Other"
+    ]
+  }
+}

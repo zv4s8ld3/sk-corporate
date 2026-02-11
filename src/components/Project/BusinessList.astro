@@ -1,0 +1,60 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  t: any;
+}
+
+const { t } = Astro.props;
+
+import businessImg1 from "../../assets/images/common/business1.webp";
+import businessImg2 from "../../assets/images/common/business2.webp";
+import businessImg3 from "../../assets/images/common/business3.webp";
+
+const business = [
+  { title: t.business.title_list_1, img: businessImg1, comments: t.business.comments_list_1 },
+  { title: t.business.title_list_2, img: businessImg2, comments: t.business.comments_list_2 },
+  { title: t.business.title_list_3, img: businessImg3, comments: t.business.comments_list_3 },
+];
+---
+
+<section class="py-10 md:py-12">
+  <h2 class="section-title mb-8" data-animation="slideUp">
+    <span class="capitalize">Mobile App</span>
+    <span class="lowercase">development</span>
+  </h2>
+  <p class="[--border-position:6rem] border-text ml-[calc(var(--border-position)+1rem)]">
+    <span data-animation="slideUp">{t.business.sub_title_list}</span>
+  </p>
+  <div class="mt-8 grid gap-y-20">
+    {
+      business.map((el, i) => (
+        <div class="grid md:grid-cols-2 gap-x-20">
+          <Image
+            src={el.img}
+            class="w-full h-auto"
+            alt={el.title}
+            data-animation="slideDown"
+          />
+          <div class="relative">
+            <span class="block text-[#DA8B54] text-lg mb-4">
+              {(i + 1).toString().padStart(2, "0")}
+            </span>
+            
+            <p
+              class="font-bold whitespace-pre-wrap text-[clamp(1.125rem,0.931rem+0.828vw,1.5rem)] mb-7 leading-tight"
+              data-animation="slideLeft"
+              set:html={el.title}
+            ></p>
+
+            <p
+              class="whitespace-pre-wrap leading-relaxed text-gray-700"
+              data-animation="slideLeft"
+              set:html={el.comments}
+            ></p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

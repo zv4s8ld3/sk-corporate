@@ -1,0 +1,86 @@
+---
+// 親コンポーネントから受け取るpropsの定義
+interface Props {
+  t: any;
+  locale: string;
+}
+
+const { t, locale } = Astro.props;
+
+// JSONからデータを取得
+const company = t?.company || {};
+const home = t?.home || {};
+// ここで "privacy" という変数に中身を入れています
+const privacy = t?.privacy || t?.privacy_policy || { content1: "", content2: "", content3: "" };
+
+const fieldContents = [
+  {
+    title: company.field_name || "Name",
+    comments: home.title_company || "",
+  },
+  {
+    title: company.field_money || "Capital",
+    comments: company.content_money || "",
+  },
+  {
+    title: company.field_contact || "Address",
+    comments: company.content_contact || "",
+  },
+  {
+    title: company.field_content || "Business",
+    comments: [
+      company.content_business?.content_1 || "",
+      company.content_business?.content_2 || "",
+    ],
+  },
+  {
+    title: company.field_tel || "TEL",
+    comments: [company.content_tel || "03-XXXX-XXXX"],
+  },
+  {
+    title: company.field_mail || "MAIL",
+    comments: [company.content_mail || "info@shopkloset.com"],
+  },
+];
+---
+<section class="py-10 md:py-12">
+  <h2 class="section-title mb-8" data-animation="slideUp">overview</h2>
+  <p class="[--border-position:6rem] border-text ml-[calc(var(--border-position)+1rem)]">
+    <span data-animation="slideUp">{company.sub_title_overview}</span>
+  </p>
+  <div class="bg-white py-7 md:py-24 px-4 md:px-20 mt-20" data-animation="slideDown">
+    <table class="w-full">
+      <tbody>
+        {
+          fieldContents.map((item) => (
+            <tr class="flex flex-col md:flex-row mb-5 md:mb-14 text-lg" data-animation="slideLeft">
+              <th class="text-left md:w-1/4" set:html={item.title} />
+              <td>
+                {!Array.isArray(item.comments) ? (
+                  <p set:html={item.comments} />
+                ) : (
+                  <ul class="list-disc list-outside ml-6 pl-2 [&>li:not(:last-child)]:mb-4">
+                    {item.comments.map((comment) => (
+                      <li set:html={comment} />
+                    ))}
+                  </ul>
+                )}
+              </td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+
+    <div class="text-center mt-10">
+      {privacy.content1} 
+      <a
+        class="text-link-color-blue hover:text-blue-800 underline"
+        href={locale === "ja" ? "/privacypolicy" : `/privacypolicy?lang=${locale}`}
+      >
+        {privacy.content2}
+      </a>
+      {privacy.content3}
+    </div>
+  </div>
+</section>

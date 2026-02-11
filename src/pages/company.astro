@@ -1,0 +1,101 @@
+---
+import CompanyOverview from "../components/Project/CompanyOverview.astro";
+import CompanyService from "../components/Project/CompanyService.astro";
+import Footer from "../components/Project/Footer.astro";
+import Header from "../components/Project/Header.astro";
+import SectionHeaderTitle2 from "../components/Project/SectionHeaderTitle2.astro";
+import Layouts from "../layouts/Layouts.astro";
+import { Image } from "astro:assets";
+import "../styles/front.css";
+
+// 画像のインポート
+import headerArrowImg from "../assets/images/common/header_arrow.webp";
+import companyImg from "../assets/images/common/company.webp";
+
+import ja from "../locales/ja/translation.json";
+import en from "../locales/en/translation.json";
+import ko from "../locales/ko/translation.json";
+
+const locales = { ja, en, ko };
+type Locale = keyof typeof locales;
+
+const url = new URL(Astro.request.url);
+const params = Object.fromEntries(url.searchParams.entries());
+const queryLang = params.lang as Locale;
+const locale: Locale = locales[queryLang] ? queryLang : "ja";
+const t = locales[locale];
+---
+
+<Layouts title={t.common.layout_title}>
+  <Header t={t} locale={locale} />
+  <main>
+    <div class="relative overflow-hidden">
+      <SectionHeaderTitle2
+        title={t.company.layout_title}
+        subTitle="company"
+        titleClass="text-[clamp(2rem,1.3rem+3vw,4rem)]"
+      >
+        <Image
+          slot="img"
+          src={companyImg}
+          alt=""
+          class="max-h-full h-full w-auto object-cover ml-auto my-auto relative z-10 mask-gradient"
+          data-animation="slideRight"
+        />
+      </SectionHeaderTitle2>
+
+      <Image
+        src={headerArrowImg}
+        alt=""
+        class="absolute top-[25%] right-[10%] -translate-y-1/2 translate-x-1/3 z-0 w-[56%] h-auto"
+        data-animation="slideLeft"
+      />
+    </div>
+    
+    <div class="md:my-20 overflow-x-hidden">
+      <div
+        class="min-h-[1100px] w-full bg-[#F6F6F6] container max-w-[1000px] mx-auto px-4 py-16"
+      >        
+        <CompanyOverview t={t} locale={locale} />
+        <CompanyService t={t} />
+      </div>
+    </div>
+  </main>
+  <Footer t={t} locale={locale} />
+</Layouts>
+
+<style>
+  .mask-gradient {
+    -webkit-mask-image: linear-gradient(to right, transparent, black);
+    mask-image: linear-gradient(to right, transparent, black);
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+  }
+</style>
+
+<style is:global>
+  .main-header a, .main-header span, .main-header div {
+    color: #ffffff !important;
+  }
+  header .lang-switcher,
+  header .current-lang,
+  header [class*="icon"] {
+    color: #ffffff !important;
+  }
+  .main-header.is-scrolled {
+    background-color: rgba(0, 0, 0, 0.85) !important;
+  }
+
+  .header-center a.text-gray-400 {
+    color: rgba(255, 255, 255, 0.5) !important;
+    font-weight: normal !important;
+  }
+
+  .header-center a.font-bold {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    border-bottom: 2px solid #ffffff !important;
+  }
+</style>
+
+<script src="../lib/front.ts"></script>

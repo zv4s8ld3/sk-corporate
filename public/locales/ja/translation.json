@@ -1,0 +1,93 @@
+{
+  "about": {
+    "layout_title": "私たちが実現すること",
+    "content_title": "私たちShop Klosetが実現するのは、人々の秘めた可能性を引き出し\nより豊かな人生を創ること。\nすべての人々が笑顔溢れる世の中にするために一切の努力を惜しまず、可能性に\nあふれた日本社会を創出します。",
+    "vision_comments": "様々な現代の課題をアプリを通して一人ひとりの人生を豊かにする",
+    "mission_comments": "人生は素晴らしく美しい",
+    "value_comments": "人、命あるもの全てが幸せになるよりよい社会を創出するため、\n私たちは現状に甘んじず、一切の妥協せず、常に一歩先を考え行動し、\n具現化していきます。"
+  },
+  "business": {
+    "layout_title": "私たちがこれまでに培ってきた言葉の力で\n人々のポテンシャルを最大限に引き出します",
+    "content_title": "テクノロジーの急激な成長に伴い、便利な世の中になりました。\nその反面、こころが疲れた方が増加しているのもまた事実です。\n私たちは皆様のこころが安定し、笑顔を絶やさない日々を創るため、\nあらゆることに挑戦し続けます。",
+    "sub_title_list": "モバイルアプリ開発事業",
+    "title_list_1": "自社サービス\nアプリケーションの企画・運営",
+    "title_list_2": "アプリケーションの企画",
+    "title_list_3": "アプリケーションの運営",
+    "comments_list_1": "Shop Klosetは日本社会に存在する様々な課題を解決したいという思いから、プラットフォーム事業を展開しています。\nユーザーファーストを掲げ、\nすべてのお客様に価値のあるサービスを提供いたします。",
+    "comments_list_2": "当社では、アプリケーションの企画、運営を行っております。企画では、課題を洗い出し、悩みを抱えるお客様の視点に立ち、課題を解決するためのアプリケーションユーザービリティの向上を図ります。",
+    "comments_list_3": "運営では、自社サービスを利用いただくお客様の満足度を最大化させるための分析を行っております。\nお客様からの生の声やデータを元に、サービスの品質向上を図ります。"
+  },
+  "common": {
+    "layout_title": "Shop Kloset Inc.",
+    "contact": "〒150-0041\n東京都渋谷区神南1-16-7",
+    "required": "必須",
+    "title_about": "Shop Kloset Inc. | 私たちのこと",
+    "title_business": "Shop Kloset Inc. | 事業内容",
+    "title_company": "Shop Kloset Inc. | 会社情報",
+    "title_contact": "Shop Kloset Inc. | お問い合わせ",
+    "title_faq": "Shop Kloset Inc. | よくある質問",
+    "nav_home": "Home / トップ",
+    "nav_about": "About / 私たちについて",
+    "nav_business": "Business / 事業内容",
+    "nav_company": "Company / 企業概要",
+    "nav_contact": "Contact / お問い合わせ",
+    "nav_privacy": "Privacy Policy / プライバシーポリシー"
+  },
+  "company": {
+    "layout_title": "Shop Kloset Inc.",
+    "sub_title_overview": "会社概要",
+    "sub_title_service": "提供中のサービス",
+    "field_name": "名称",
+    "field_money": "資本金",
+    "field_contact": "本社所在地",
+    "field_content": "事業内容",
+    "content_money": "10,000,000(JPY)",
+    "content_contact": "〒150-0041東京都渋谷区神南1丁目16番7号",
+    "content_business": {
+      "content_1": "アプリ<br />「ShopKloset」各種運営・管理",
+      "content_2": "商標登録済",
+      "content_4": "電気通信事業届出済み"
+    },
+    "field_tel": "電話番号",
+    "content_tel": "03-3463-3818",
+    "field_mail": "メールアドレス",
+    "content_mail": "info@shopkloset.com",
+    "content_service": "ハイブランド専門アプリ\nハイブランド商品・時計・ジュエリーが、あなたのいる場所から世界中に販売できます",
+    "name_app": "「ShopKloset」"
+  },
+  "privacy_policy": {
+    "content1": "プライバシーポリシーは",
+    "content2": "こちら",
+    "content3": "をご確認ください。"
+  },
+  "home": {
+    "layout_title": "誰もが頑張ってきた証、\n\"勲章\"を誇りに思える社会を",
+    "sub_title": "Dream the best dream<br />with the best team",
+    "title_about": "私たちが実現すること",
+    "title_business": "私たちがこれまでに培ってきた言葉の力で\n人々のポテンシャルを最大限に引き出します",
+    "title_company": "Shop Kloset Inc.",
+    "content_about": "私たちShop Klosetが実現するのは、人々の秘めた可能性を引き出しより豊かな人生を創ること。すべての人々が笑顔溢れる世の中にするために一切の努力を惜しまず、可能性にあふれた日本社会を創出します。",
+    "content_business": "テクノロジーの急激な成長に伴い、便利な世の中になりました。その反面、こころが疲れた方が増加しているのもまた事実です。私たちは皆様のこころが安定し、笑顔を絶やさない日々を創るため、あらゆることに挑戦し続けます。",
+    "content_company": "会社概要"
+  },
+  "contact": {
+    "layout_title": "お問い合わせ",
+    "inquiry_form": "お問い合わせフォーム",
+    "your_name": "お名前",
+    "your_name_placeholder": "例) 田中 桜子",
+    "email": "メールアドレス",
+    "email_placeholder": "例) xxx@shopkloset.com",
+    "content_of_inquiry": "お問い合わせ内容",
+    "seclect_content_of_inquiry": "内容を選択",
+    "comments": "自由記入欄・ご質問等",
+    "comments_placeholder": "例) 質問内容を入力",
+    "accept": "利用規約および個人情報保護方針に同意する",
+    "send": "送信する",
+    "options": [
+      "ログインできない",
+      "アカウント停止について",
+      "決済について",
+      "その他"
+    ]
+  }
+}

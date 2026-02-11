@@ -1,0 +1,18 @@
+---
+import ArrowBtn from "./ArrowBtn.astro";
+
+interface Props {
+  href: string;
+}
+const { href = "#" } = Astro.props;
+---
+
+<a 
+  href={href} 
+  class="flex gap-3 place-items-center place-content-center w-[235px] px-4 py-4 uppercase text-center transition-all duration-300 ease-in-out text-white stroke-white bg-gradient-to-r from-[#FF0080] to-[#5D00B3] hover:scale-[1.03] hover:bg-white hover:text-[#5D00B3] hover:stroke-[#5D00B3] [font-family:var(--font-mont)]"
+>
+  <span data-animation="FadeUpText">
+    <slot>See Details</slot> 
+  </span>
+  <ArrowBtn />
+</a>

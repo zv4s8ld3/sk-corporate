@@ -1,0 +1,84 @@
+---
+interface Props {
+  clr?: string;
+  flow?: string;
+  t: any;
+  locale: string;
+  isSp?: boolean;
+}
+
+const { clr = "#5C524A", flow, t, locale, isSp = false } = Astro.props;
+const l = (path: string) => `${path}?lang=${locale}`;
+
+const navItems = [
+  { text: "home", href: "/" },
+  { text: "about", href: "/about" },
+  { text: "business", href: "/business" },
+  { text: "company", href: "/company" },
+  { text: "contact", href: "/contact" },
+];
+---
+
+<ul class:list={["flex flex-wrap gap-5 uppercase font-bold font-mont", flow]} style={`color: ${clr};`}>
+  {
+    navItems.map((el) => (
+      <li class="nav-li-item">
+        <a href={l(el.href)} class="li-contents relative inline-block group">
+          <p class="li-item relative md:overflow-hidden">
+
+<span class="li-origin inline-block transition-all duration-300 
+  {isSp ? '' : 'md:group-hover:-translate-y-6'}">
+  {el.text}
+</span>
+
+<span class="li-clone absolute top-0 left-0 z-10 translate-y-6 
+  {isSp ? 'inline-block' : 'hidden md:inline-block'} transition-all duration-300 
+  {isSp ? '' : 'md:group-hover:translate-y-0'}">
+  {el.text}
+</span>
+
+          </p>
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+
+<style define:vars={{ "border-clr": clr }}>
+  .nav-li-item {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  :global(.flex-col) .nav-li-item {
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .li-contents::after {
+    content: "";
+    height: 1px;
+    background-color: var(--border-clr);
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 0;
+  }
+
+  .li-contents:hover::after {
+    animation: border-b 0.25s ease-in-out forwards;
+  }
+
+  @keyframes border-b {
+    from { width: 0; }
+    to { width: 60%; }
+  }
+  :global(.flex-col) .li-origin {
+  display: inline-block !important;
+}
+</style>
