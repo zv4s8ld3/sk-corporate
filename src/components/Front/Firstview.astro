@@ -3,13 +3,25 @@ import cn from "classnames";
 const { t, locale } = Astro.props;
 ---
 
-<div role="banner" class="text-white relative firstview header-bg-none">
+<div role="banner" class="text-white relative firstview header-bg-none overflow-hidden">
+  <img
+    src="/images/sp_hero.webp"
+    srcset="/images/sp_hero.webp 1080w,
+            /images/tablet_hero.webp 1536w,
+            /images/pc_hero.webp 2560w"
+    sizes="100vw"
+    alt=""
+    class="hero-image"
+    fetchpriority="high"
+    loading="eager"
+    decoding="async"
+  />
 
   <div class="firstview__content z-20">
     <h2
       class={cn(
         "font-bold z-10 relative animation-from",
-        "mb-6 md:mb-10 text-48", /* front.cssのクラスを使用 */
+        "mb-6 md:mb-10 text-48",
         locale === "en" ? "whitespace-normal mt-6" : "whitespace-pre-line"
       )}
     >
@@ -30,6 +42,21 @@ const { t, locale } = Astro.props;
 
   .firstview {
     position: relative;
+    /* 背景画像としての高さを確保 */
+    width: 100%;
+    height: 65svh;
+    min-height: 605px;
+  }
+
+  /* 画像を背景として全画面に広げる設定 */
+  .hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
   }
 
   .firstview__content {
@@ -41,6 +68,7 @@ const { t, locale } = Astro.props;
     margin-inline: auto;
     padding-inline: 4%;
     text-align: left;
+    /* z-index: 20はHTML側で指定済み */
   }
 
   @media (min-height: 1000px) {
@@ -68,5 +96,13 @@ const { t, locale } = Astro.props;
   @keyframes show2 {
     from { clip-path: inset(0 100% 0 0); }
     to { clip-path: inset(0); }
+  }
+
+  /* PC環境等での高さ調整が必要な場合は適宜追加 */
+  @media (min-width: 1024px) {
+    .firstview {
+      height: 55svh;
+      min-height: 865px;
+    }
   }
 </style>
