@@ -18,6 +18,15 @@ const isHome = pathname === "/";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+	{isHome && (
+    <link
+      rel="preload"
+      as="image"
+      href="/images/pc_hero.webp"
+      imagesrcset="/images/sp_hero.webp 1080w, /images/tablet_hero.webp 1536w, /images/pc_hero.webp 2560w"
+      imagesizes="100vw"
+    />
+  )}
     <meta name="generator" content={Astro.generator} />
     <title>{title ? title : "Shop Kloset Inc."}</title>
 
