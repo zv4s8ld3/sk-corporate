@@ -28,11 +28,9 @@ const t = locales[locale];
     <Contents t={t} locale={locale} />
   </div>
   <Footer t={t} locale={locale} />
-
 </Layouts>
 
 <style is:global>
-/* ヘッダー透過 */
 body.home #main-header {
   background: transparent;
 }
@@ -47,9 +45,6 @@ body.home .firstview {
   min-height: 605px;
   max-height: 700px;
   overflow: hidden;
-  background-size: cover;
-  background-position: center top;
-  background-image: url('/images/sp_hero.webp');
 }
 
 /* =========================
@@ -57,8 +52,6 @@ body.home .firstview {
    ========================= */
 @media (min-width: 768px) and (max-width: 1023px) {
   body.home .firstview {
-    background-image: url('/images/tablet_hero.webp');
-    background-position: center 30%;
     height: 60svh;
     min-height: 670px;
     max-height: 750px;
@@ -70,15 +63,11 @@ body.home .firstview {
    ========================= */
 @media (min-width: 1024px) {
   body.home .firstview {
-    background-image: url('/images/pc_hero.webp');
-    background-position: center 50%;
     height: 55svh;
     max-height: 520px;
     min-height: 865px;
   }
 }
-
-
 </style>
-<script src="../lib/front.ts"></script>
 
+<script src="../lib/front.ts"></script>
