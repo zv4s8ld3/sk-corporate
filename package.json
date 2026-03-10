@@ -23,7 +23,6 @@
     "locale-emoji": "^0.3.0",
     "microcms-js-sdk": "^2.5.0",
     "micromodal": "^0.4.10",
-    "sharp": "^0.31.3",
     "tailwindcss": "^4.1.18",
     "vue": "^3.3.4"
   },
