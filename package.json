@@ -16,7 +16,7 @@
   "dependencies": {
     "@astrojs/vercel": "^9.0.4",
     "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.16.7",
+    "astro": "^5.18.0",
     "classnames": "^2.3.2",
     "gsap": "^3.11.4",
     "iso-639-1": "^2.1.15",
@@ -28,7 +28,7 @@
     "vue": "^3.3.4"
   },
   "devDependencies": {
-    "@astrojs/partytown": "^2.0.2",
+    "@astrojs/partytown": "^2.1.4",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/line-clamp": "^0.4.2",
     "@tailwindcss/typography": "^0.5.9",
