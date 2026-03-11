@@ -36,10 +36,11 @@
     "field_contact": "Headquarters Location",
     "field_content": "Business Activities",
     "content_money": "10,000,000(JPY)",
-    "content_contact": "1-16-7 Jinnan, Shibuya-ku, Tokyo 150-0041",
+    "content_contact": "1-16-7 Jinnan, Shibuya-ku, Tokyo 150-0041<br />Secondhand dealer license Tokyo Metropolitan Public Safety Commission License No. 303272419438",
     "content_business": {
       "content_1": "Various operation and management of the platform \"ShopKloset\"",
       "content_2": "Trademark registered",
+      "content_3": "Beyond Japan, and across the globe.Registered Trademark Worldwide International Patent Pending",
       "content_4": "Telecommunications business notification completed"
     },
     "field_tel": "Phone Number",
