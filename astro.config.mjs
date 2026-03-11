@@ -7,5 +7,8 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  adapter: vercel()
+  adapter: vercel(),
+  image: {
+    service: { entrypoint: 'astro/assets/services/noop' },
+  },
 });
