@@ -36,10 +36,11 @@
     "field_contact": "본사 소재지",
     "field_content": "사업 내용",
     "content_money": "10,000,000(JPY)",
-    "content_contact": "〒150-0041 도쿄도 시부야구 진난 1가 16번 7호",
+    "content_contact": "〒150-0041 도쿄도 시부야구 진난 1-16-7<br />일본 도쿄도 공안위원회 고물상 허가 제 303272419438호",
     "content_business": {
       "content_1": "앱 「ShopKloset」 각종 운영·관리",
       "content_2": "상표 등록 완료",
+	  "content_3": "일본은 물론, 세계 상표 등록 완료 / 세계 특허 출원 중",
       "content_4": "전기통신사업 신고 완료"
     },
     "field_tel": "전화번호",
