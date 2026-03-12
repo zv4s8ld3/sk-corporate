@@ -5,9 +5,10 @@ interface Props {
 
 const { t } = Astro.props;
 
-const businessImg1 = "/images/common/business1.webp";
-const businessImg2 = "/images/common/business2.webp";
-const businessImg3 = "/images/common/business3.webp";
+// 先頭に . (ドット) を追加して、相対パスとして認識させます
+const businessImg1 = "./images/common/business1.webp";
+const businessImg2 = "./images/common/business2.webp";
+const businessImg3 = "./images/common/business3.webp";
 
 const business = [
   { title: t.business.title_list_1, img: businessImg1, comments: t.business.comments_list_1 },
