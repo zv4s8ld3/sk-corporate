@@ -3,11 +3,7 @@ import Layouts from "../layouts/Layouts.astro";
 import Header from "../components/Project/Header.astro";
 import Footer from "../components/Project/Footer.astro";
 import SectionHeaderTitle2 from "../components/Project/SectionHeaderTitle2.astro";
-import { Image } from "astro:assets";
 import "../styles/front.css";
-
-import headerArrowImg from "../assets/images/common/header_arrow.webp";
-import privacyHeaderImg from "../assets/images/common/image6.webp";
 
 import PrivacyJa from "../components/Project/privacypolicy/PrivacyJa.astro";
 import PrivacyEn from "../components/Project/privacypolicy/PrivacyEn.astro";
@@ -41,21 +37,20 @@ const t = locales[locale];
           data-animation="slideLeft"
           class="text-white block leading-[1.8] md:leading-relaxed whitespace-pre-wrap -translate-y-4 md:-translate-y-4 opacity-0"
         >
-          {/* テキストが必要な場合はここに入力 */}
         </span>
       </div>
 
-      <Image
+      <img
         slot="img"
-        src={privacyHeaderImg}
+        src="/images/common/image6.webp"
         alt=""
         class="max-h-full h-full w-auto object-cover ml-auto my-auto relative z-10"
         data-animation="slideRight"
       />
     </SectionHeaderTitle2>
 
-    <Image
-      src={headerArrowImg}
+    <img
+      src="/images/common/header_arrow.webp"
       alt=""
       class="absolute top-[25%] right-[10%] -translate-y-1/2 translate-x-1/3 z-20 w-[56%] h-auto"
       data-animation="slideLeft"
@@ -101,13 +96,11 @@ const t = locales[locale];
   :global(address) { font-style: normal; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; }
 </style>
 <style is:global>
-  /* 余計な最適化コードをすべて捨てて、これだけにしてください */
   .main-header a, .main-header span, .main-header div { color: #ffffff !important; }
   header .lang-switcher, header .current-lang, header [class*="icon"] { color: #ffffff !important; }
   .main-header.is-scrolled { background-color: rgba(0, 0, 0, 0.85) !important; }
   .header-center a.text-gray-400 { color: rgba(255, 255, 255, 0.5) !important; font-weight: normal !important; }
   .header-center a.font-bold { color: #ffffff !important; font-weight: 800 !important; border-bottom: 2px solid #ffffff !important; }
 </style>
-
 
 <script src="../lib/front.ts"></script>
