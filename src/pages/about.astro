@@ -3,7 +3,6 @@ import Layouts from "../layouts/Layouts.astro";
 import Header from "../components/Project/Header.astro";
 import Footer from "../components/Project/Footer.astro";
 import SectionHeaderTitle2 from "../components/Project/SectionHeaderTitle2.astro";
-import { Image } from "astro:assets"; 
 import "../styles/front.css";
 
 import ja from "../locales/ja/translation.json";
@@ -19,27 +18,21 @@ const queryLang = params.lang as Locale;
 const locale: Locale = locales[queryLang] ? queryLang : "ja";
 const t = locales[locale];
 
-import headerAboutImg from "../assets/images/common/header_about.webp";
-import headerArrowImg from "../assets/images/common/header_arrow.webp";
-import visionImg from "../assets/images/common/about_vision.webp";
-import missionImg from "../assets/images/common/about_mission.webp";
-import valueImg from "../assets/images/common/about_value.webp";
-
 const aboutContents = [
   {
     title: "vision",
     comments: t.about.vision_comments,
-    img: visionImg,
+    img: "/images/common/about_vision.webp",
   },
   {
     title: "mission",
     comments: t.about.mission_comments,
-    img: missionImg,
+    img: "/images/common/about_mission.webp",
   },
   {
     title: "value",
     comments: t.about.value_comments,
-    img: valueImg,
+    img: "/images/common/about_value.webp",
   },
 ];
 ---
@@ -51,26 +44,26 @@ const aboutContents = [
     <div class="relative overflow-hidden">
       <SectionHeaderTitle2 title={t.about.layout_title} subTitle="about">
         
-		<div
-  slot="default"
-  class="mt-20 md:mt-18">
-  <span
-    data-animation="slideLeft"
-    class="text-white block leading-[1.8] md:leading-relaxed whitespace-pre-wrap -translate-y-4 md:-translate-y-4"
-  >
-    {t.about.content_title}
-  </span>
-</div>
-        <Image
+        <div slot="default" class="mt-20 md:mt-18">
+          <span
+            data-animation="slideLeft"
+            class="text-white block leading-[1.8] md:leading-relaxed whitespace-pre-wrap -translate-y-4 md:-translate-y-4"
+          >
+            {t.about.content_title}
+          </span>
+        </div>
+
+        <img
           slot="img"
-          src={headerAboutImg}
+          src="/images/common/header_about.webp"
           alt=""
           class="max-h-full h-full w-auto object-cover ml-auto my-auto relative z-10"
           data-animation="slideRight"
         />
       </SectionHeaderTitle2>
-      <Image
-        src={headerArrowImg}
+      
+      <img
+        src="/images/common/header_arrow.webp"
         alt=""
         class="absolute top-[25%] right-[10%] -translate-y-1/2 translate-x-1/3 z-0 w-[56%] h-auto"
         data-animation="slideLeft"
@@ -82,7 +75,8 @@ const aboutContents = [
         aboutContents.map((el) => {
           return (
             <div class="mb-20">
-              <Image
+
+              <img
                 src={el.img}
                 alt={el.title}
                 class="mb-8 w-full h-auto"
