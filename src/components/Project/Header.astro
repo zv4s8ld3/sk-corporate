@@ -1,21 +1,14 @@
 ---
-// フロントマターの冒頭
 import NavItems from "../Parts/NavItems.astro";
 
 const { t, locale } = Astro.props;
 const l = (path: string) => locale === 'ja' ? path : `${path}?lang=${locale}`;
 
-// 修正ポイント：pathname が取得できない場合に備えてデフォルト値（"/"）を設定
-const pathname = Astro.url?.pathname || "/"; 
+const { pathname } = Astro.url;
 const isHome = pathname === "/" || pathname === "";
 const defaultColor = isHome ? "#654321" : "#5C524A";
 
-// switchL の修正：クエリパラメータ（?lang=...）を二重に付けないように工夫
-const switchL = (lang: string) => {
-  const url = new URL(Astro.url);
-  url.searchParams.set('lang', lang);
-  return url.pathname + url.search;
-};
+const switchL = (lang: string) => `${pathname}?lang=${lang}`;
 ---
 
 <header class="main-header w-full fixed top-0 left-0 z-50 pt-6 pb-2" id="main-header">
