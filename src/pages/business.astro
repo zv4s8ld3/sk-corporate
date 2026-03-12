@@ -1,7 +1,5 @@
 ---
-// src/components/... (このファイルのパス)
-// 【修正1】import { Image } を削除
-import { } from "astro:assets"; // もし他に使わなければこの行ごと消してOKです
+import ViewMoreBtn from "../Parts/ViewMoreBtn.astro";
 
 interface Props {
   t: any;
@@ -9,7 +7,6 @@ interface Props {
 
 const { t } = Astro.props;
 
-// 【修正2】import ではなく、publicフォルダを指すパス（文字列）に変更
 const businessImg1 = "/images/common/business1.webp";
 const businessImg2 = "/images/common/business2.webp";
 const businessImg3 = "/images/common/business3.webp";
