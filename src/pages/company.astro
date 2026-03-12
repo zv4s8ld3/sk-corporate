@@ -5,12 +5,11 @@ import Footer from "../components/Project/Footer.astro";
 import Header from "../components/Project/Header.astro";
 import SectionHeaderTitle2 from "../components/Project/SectionHeaderTitle2.astro";
 import Layouts from "../layouts/Layouts.astro";
-import { Image } from "astro:assets";
+// ❌ 削除: import { Image } from "astro:assets";
 import "../styles/front.css";
 
-// 画像のインポート
-import headerArrowImg from "../assets/images/common/header_arrow.webp";
-import companyImg from "../assets/images/common/company.webp";
+// ❌ 削除: import headerArrowImg ...
+// ❌ 削除: import companyImg ...
 
 import ja from "../locales/ja/translation.json";
 import en from "../locales/en/translation.json";
@@ -35,17 +34,19 @@ const t = locales[locale];
         subTitle="company"
         titleClass="text-[clamp(2rem,1.3rem+3vw,4rem)]"
       >
-        <Image
+        {/* ✅ imgタグに変更し、publicのパスを指定 */}
+        <img
           slot="img"
-          src={companyImg}
+          src="/images/common/company.webp"
           alt=""
           class="max-h-full h-full w-auto object-cover ml-auto my-auto relative z-10 mask-gradient"
           data-animation="slideRight"
         />
       </SectionHeaderTitle2>
 
-      <Image
-        src={headerArrowImg}
+      {/* ✅ imgタグに変更し、publicのパスを指定 */}
+      <img
+        src="/images/common/header_arrow.webp"
         alt=""
         class="absolute top-[25%] right-[10%] -translate-y-1/2 translate-x-1/3 z-0 w-[56%] h-auto"
         data-animation="slideLeft"
