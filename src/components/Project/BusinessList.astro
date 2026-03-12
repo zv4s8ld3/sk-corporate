@@ -1,15 +1,14 @@
 ---
-import { Image } from "astro:assets";
-
 interface Props {
   t: any;
 }
 
 const { t } = Astro.props;
 
-import businessImg1 from "../../assets/images/common/business1.webp";
-import businessImg2 from "../../assets/images/common/business2.webp";
-import businessImg3 from "../../assets/images/common/business3.webp";
+// import ではなく、public フォルダを指す文字列パスに変更
+const businessImg1 = "/images/common/business1.webp";
+const businessImg2 = "/images/common/business2.webp";
+const businessImg3 = "/images/common/business3.webp";
 
 const business = [
   { title: t.business.title_list_1, img: businessImg1, comments: t.business.comments_list_1 },
@@ -30,7 +29,8 @@ const business = [
     {
       business.map((el, i) => (
         <div class="grid md:grid-cols-2 gap-x-20">
-          <Image
+          {/* Image コンポーネントを標準の img タグへ変更 */}
+          <img
             src={el.img}
             class="w-full h-auto"
             alt={el.title}
