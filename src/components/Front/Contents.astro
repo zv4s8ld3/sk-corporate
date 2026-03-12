@@ -13,10 +13,10 @@ const t = propsT;
 const l = (path: string) =>
   locale === 'ja' ? path : `${path}?lang=${locale}`;
 
-import image1 from "../../assets/images/front/image1.webp";
-import image2 from "../../assets/images/front/image2.webp";
-import arrow1 from "../../assets/images/front/arrow1.webp";
-import arrow2 from "../../assets/images/front/arrow2.webp";
+import image1 from "/images/front/image1.webp";
+import image2 from "/images/front/image2.webp";
+import arrow1 from "/images/front/arrow1.web";
+import arrow2 from "/images/front/arrow2.webp";
 ---
 
 <div class="contents-wrapper pt-32 pb-6 md:pt-32 md:pb-6 relative overflow-hidden">
@@ -79,8 +79,18 @@ import arrow2 from "../../assets/images/front/arrow2.webp";
     />
     <div class="front-container z-10">
       <h2 class="section-title mb-7 px-4 md:px-0" data-animation="slideUp">company</h2>
-      <p class="border-text text-base sm:text-lg mb-16 translate-x-4">
-        <span data-animation="slideLeft">{t.home.title_company}</span> </p>
+	  
+<p class="border-text text-base sm:text-lg mb-16 translate-x-4">
+        <span data-animation="slideLeft">
+          {t.home.title_company}
+          {locale === 'ja' && t.home.title_company_jp && (
+            <span class="ml-2 text-[0.85em] font-medium opacity-90">
+              {t.home.title_company_jp}
+            </span>
+          )}
+        </span>
+      </p>
+	  
       <div class="grid grid-cols-1">
 <div class="overview" data-animation="slideUp">
   <h3 class="text-36 font-mont font-bold">overview</h3>
