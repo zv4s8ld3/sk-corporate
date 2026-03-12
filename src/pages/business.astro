@@ -1,20 +1,17 @@
 ---
 import ViewMoreBtn from "../Parts/ViewMoreBtn.astro";
 
-interface Props {
-  t: any;
-}
-
 const { t } = Astro.props;
 
 const businessImg1 = "/images/common/business1.webp";
 const businessImg2 = "/images/common/business2.webp";
 const businessImg3 = "/images/common/business3.webp";
 
+// 500エラー回避のため、t が存在しない場合に備えて「?」をつけます
 const business = [
-  { title: t.business.title_list_1, img: businessImg1, comments: t.business.comments_list_1 },
-  { title: t.business.title_list_2, img: businessImg2, comments: t.business.comments_list_2 },
-  { title: t.business.title_list_3, img: businessImg3, comments: t.business.comments_list_3 },
+  { title: t?.business?.title_list_1 || "", img: businessImg1, comments: t?.business?.comments_list_1 || "" },
+  { title: t?.business?.title_list_2 || "", img: businessImg2, comments: t?.business?.comments_list_2 || "" },
+  { title: t?.business?.title_list_3 || "", img: businessImg3, comments: t?.business?.comments_list_3 || "" },
 ];
 ---
 
