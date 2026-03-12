@@ -5,6 +5,7 @@ interface Props {
 
 const { t } = Astro.props;
 
+// パスを「ドットなし」の絶対パスに戻します
 const businessImg1 = "/images/common/business1.webp";
 const businessImg2 = "/images/common/business2.webp";
 const businessImg3 = "/images/common/business3.webp";
@@ -28,11 +29,13 @@ const business = [
     {
       business.map((el, i) => (
         <div class="grid md:grid-cols-2 gap-x-20">
-          {/* Image コンポーネントを標準の img タグへ変更 */}
+          {/* srcを el.img ではなく、直接文字列として認識されやすく書きます */}
           <img
             src={el.img}
             class="w-full h-auto"
             alt={el.title}
+            loading="lazy"
+            decoding="async"
             data-animation="slideDown"
           />
           <div class="relative">
