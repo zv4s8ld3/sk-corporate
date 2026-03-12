@@ -1,6 +1,6 @@
 ---
 // src/components/Front/Contents.astro
-import { Image } from 'astro:assets';
+// 【修正1】import { Image } を削除
 import ViewMoreBtn from "../Parts/ViewMoreBtn.astro";
 
 const url = new URL(Astro.request.url);
@@ -22,7 +22,7 @@ const arrow2 = "/images/front/arrow2.webp";
 <div class="contents-wrapper pt-32 pb-6 md:pt-32 md:pb-6 relative overflow-hidden">
   <section class="front-container lg:mb-24" id="about">
     <div class="relative">
-      <Image
+      <img
         src={image1}
         alt=""
         class="section-img left z-20"
@@ -39,7 +39,7 @@ const arrow2 = "/images/front/arrow2.webp";
         </div>
       </div>
     </div>
-    <Image
+    <img
       src={arrow1}
       alt=""
       class="absolute top-[13%] -left-[50%] -z-10 -translate-y-1/2"
@@ -49,7 +49,7 @@ const arrow2 = "/images/front/arrow2.webp";
 
   <section class="front-container md:mb-28" id="business">
     <div class="relative">
-      <Image
+      <img
         src={image2}
         alt=""
         class="section-img right z-20"
@@ -71,7 +71,7 @@ const arrow2 = "/images/front/arrow2.webp";
   </section>
 
   <section class="bg-[#F6F6F6] pt-20 md:py-20" id="company">
-    <Image
+    <img
       src={arrow2}
       alt=""
       class="mix-arrow"
@@ -79,8 +79,8 @@ const arrow2 = "/images/front/arrow2.webp";
     />
     <div class="front-container z-10">
       <h2 class="section-title mb-7 px-4 md:px-0" data-animation="slideUp">company</h2>
-	  
-<p class="border-text text-base sm:text-lg mb-16 translate-x-4">
+      
+      <p class="border-text text-base sm:text-lg mb-16 translate-x-4">
         <span data-animation="slideLeft">
           {t.home.title_company}
           {locale === 'ja' && t.home.title_company_jp && (
@@ -90,17 +90,18 @@ const arrow2 = "/images/front/arrow2.webp";
           )}
         </span>
       </p>
-	  
+      
       <div class="grid grid-cols-1">
-<div class="overview" data-animation="slideUp">
-  <h3 class="text-36 font-mont font-bold">overview</h3>
-  <p class="text-lg">{t.home.content_company}</p>
-  <div class="mt-8 flex justify-center">
-    <ViewMoreBtn href={l("/company")}>
-      See Details
-    </ViewMoreBtn>
-  </div>
-</div>	  
+        <div class="overview" data-animation="slideUp">
+          <h3 class="text-36 font-mont font-bold">overview</h3>
+          <p class="text-lg">{t.home.content_company}</p>
+          <div class="mt-8 flex justify-center">
+            <ViewMoreBtn href={l("/company")}>
+              See Details
+            </ViewMoreBtn>
+          </div>
+        </div>      
+      </div>
     </div>
   </section>
 </div>
