@@ -15,22 +15,28 @@ const {
   ogType = "website",
 } = Astro.props;
 
+// 対応ロケールの定義
+const SUPPORTED_LOCALES = ["ja", "en", "ko"] as const;
+type Locale = typeof SUPPORTED_LOCALES[number];
+
 // 現在のURL情報を取得
 const url = new URL(Astro.request.url);
 const { pathname } = Astro.url;
-// 現状のパラメータ (?lang=ko など) を取得
-const locale = url.searchParams.get("lang") || "ja";
+
+// locale の安全な取得（想定外の値は ja にフォールバック）
+const rawLocale = url.searchParams.get("lang") ?? "ja";
+const locale: Locale = (SUPPORTED_LOCALES as readonly string[]).includes(rawLocale)
+  ? (rawLocale as Locale)
+  : "ja";
 
 const isHome = pathname === "/";
-const SITE_URL = "https://shopkloset.com"; // ドメインを合わせました
 
-// canonical URL（基本はパラメータなしのURL）
+const SITE_URL = "https://shopkloset.com";
+
+// canonical URL（クエリパラメータなし）
 const canonicalURL = new URL(pathname, SITE_URL).href;
 
-/**
- * 【重要】現状の ?lang=xx 形式を維持したURL生成
- * 日本語(ja)の場合はパラメータなし、それ以外は ?lang= を付与
- */
+// hreflang URL生成（ja はパラメータなし、それ以外は ?lang= を付与）
 const getHreflang = (lang: string) => {
   const newUrl = new URL(pathname, SITE_URL);
   if (lang !== "ja") {
@@ -47,8 +53,15 @@ const hreflangURLs = {
   ko: getHreflang("ko"),
 };
 
+// og:locale マッピング
+const ogLocaleMap: Record<Locale, string> = {
+  ja: "ja_JP",
+  en: "en_US",
+  ko: "ko_KR",
+};
+
 // 言語別デフォルトテキスト
-const defaults = {
+const defaults: Record<Locale, { title: string; description: string }> = {
   ja: { title: "Shop Kloset Inc.", description: "Shop Kloset Inc.の公式サイトです。" },
   en: { title: "Shop Kloset Inc.", description: "Welcome to the official site of Shop Kloset Inc." },
   ko: { title: "Shop Kloset Inc.", description: "Shop Kloset Inc. 공식 사이트입니다." },
@@ -56,6 +69,7 @@ const defaults = {
 
 const metaTitle = title ?? defaults[locale].title;
 const metaDescription = description ?? defaults[locale].description;
+const ogImageURL = new URL(ogImage, SITE_URL).href;
 ---
 
 <html lang={locale}>
@@ -76,37 +90,47 @@ const metaDescription = description ?? defaults[locale].description;
 
     <meta name="generator" content={Astro.generator} />
 
+    {/* 基本SEO */}
     <title>{metaTitle}</title>
     <meta name="description" content={metaDescription} />
+    <meta name="robots" content="index, follow" />
 
+    {/* canonical */}
     <link rel="canonical" href={canonicalURL} />
 
-    {/* 現状の ?lang= 形式に合わせた hreflang 設定 */}
+    {/* hreflang */}
     <link rel="alternate" hreflang="ja" href={hreflangURLs.ja} />
     <link rel="alternate" hreflang="en" href={hreflangURLs.en} />
     <link rel="alternate" hreflang="ko" href={hreflangURLs.ko} />
     <link rel="alternate" hreflang="x-default" href={hreflangURLs.ja} />
 
-    {/* OGP関連 */}
+    {/* OGP */}
     <meta property="og:title" content={metaTitle} />
     <meta property="og:description" content={metaDescription} />
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={new URL(Astro.request.url).href} />
-    <meta property="og:image" content={new URL(ogImage, SITE_URL).href} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content={ogLocaleMap[locale]} />
     <meta property="og:site_name" content="Shop Kloset Inc." />
 
+    {/* Twitter Card */}
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={metaTitle} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={ogImageURL} />
 
-    {/* ファビコン設定 */}
+    {/* ファビコン */}
     <link rel="icon" type="image/svg+xml" href="/skinc_favicon.svg" />
     <link rel="alternate icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/skinc_favicon-256.png" />
 
-    {/* フォント読み込み */}
+    {/* フォント */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Montserrat:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class:list={[{ home: isHome }]}>
     <slot name="header" />
