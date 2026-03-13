@@ -3,55 +3,114 @@ import "../styles/global.css";
 
 interface Props {
   title?: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: string;
 }
-const { title } = Astro.props;
 
+const {
+  title,
+  description,
+  ogImage = "/images/og_default.webp",
+  ogType = "website",
+} = Astro.props;
+
+// 現在のURL情報を取得
 const url = new URL(Astro.request.url);
+const { pathname } = Astro.url;
+// 現状のパラメータ (?lang=ko など) を取得
 const locale = url.searchParams.get("lang") || "ja";
 
-const { pathname } = Astro.url;
-
 const isHome = pathname === "/";
+const SITE_URL = "https://shopkloset.com"; // ドメインを合わせました
+
+// canonical URL（基本はパラメータなしのURL）
+const canonicalURL = new URL(pathname, SITE_URL).href;
+
+/**
+ * 【重要】現状の ?lang=xx 形式を維持したURL生成
+ * 日本語(ja)の場合はパラメータなし、それ以外は ?lang= を付与
+ */
+const getHreflang = (lang: string) => {
+  const newUrl = new URL(pathname, SITE_URL);
+  if (lang !== "ja") {
+    newUrl.searchParams.set("lang", lang);
+  } else {
+    newUrl.searchParams.delete("lang");
+  }
+  return newUrl.href;
+};
+
+const hreflangURLs = {
+  ja: getHreflang("ja"),
+  en: getHreflang("en"),
+  ko: getHreflang("ko"),
+};
+
+// 言語別デフォルトテキスト
+const defaults = {
+  ja: { title: "Shop Kloset Inc.", description: "Shop Kloset Inc.の公式サイトです。" },
+  en: { title: "Shop Kloset Inc.", description: "Welcome to the official site of Shop Kloset Inc." },
+  ko: { title: "Shop Kloset Inc.", description: "Shop Kloset Inc. 공식 사이트입니다." },
+};
+
+const metaTitle = title ?? defaults[locale].title;
+const metaDescription = description ?? defaults[locale].description;
 ---
 
 <html lang={locale}>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-	{isHome && (
-    <link
-      rel="preload"
-      as="image"
-      href="/images/pc_hero.webp"
-      imagesrcset="/images/sp_hero.webp 1080w, /images/tablet_hero.webp 1536w, /images/pc_hero.webp 2560w"
-      imagesizes="100vw"
-    />
-  )}
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {/* ヒーロー画像の先行読み込み（パフォーマンス向上） */}
+    {isHome && (
+      <link
+        rel="preload"
+        as="image"
+        href="/images/pc_hero.webp"
+        imagesrcset="/images/sp_hero.webp 1080w, /images/tablet_hero.webp 1536w, /images/pc_hero.webp 2560w"
+        imagesizes="100vw"
+      />
+    )}
+
     <meta name="generator" content={Astro.generator} />
-    <title>{title ? title : "Shop Kloset Inc."}</title>
-	<link rel="icon" type="image/svg+xml" href="/skinc_favicon.svg" />
-	<link rel="alternate icon" href="/skinc_favicon-48.ico" />
-	<link rel="apple-touch-icon" href="/skinc_favicon-256.png" />
+
+    <title>{metaTitle}</title>
+    <meta name="description" content={metaDescription} />
+
+    <link rel="canonical" href={canonicalURL} />
+
+    {/* 現状の ?lang= 形式に合わせた hreflang 設定 */}
+    <link rel="alternate" hreflang="ja" href={hreflangURLs.ja} />
+    <link rel="alternate" hreflang="en" href={hreflangURLs.en} />
+    <link rel="alternate" hreflang="ko" href={hreflangURLs.ko} />
+    <link rel="alternate" hreflang="x-default" href={hreflangURLs.ja} />
+
+    {/* OGP関連 */}
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={new URL(Astro.request.url).href} />
+    <meta property="og:image" content={new URL(ogImage, SITE_URL).href} />
+    <meta property="og:site_name" content="Shop Kloset Inc." />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    {/* ファビコン設定 */}
+    <link rel="icon" type="image/svg+xml" href="/skinc_favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/skinc_favicon-256.png" />
+
+    {/* フォント読み込み */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
   </head>
-
   <body class:list={[{ home: isHome }]}>
-    {/* Header を確実にここに挿入 */}
     <slot name="header" />
-
-    {/* メインコンテンツ */}
     <slot />
-
-    {/* Footer を確実にここに挿入 */}
     <slot name="footer" />
   </body>
 </html>
