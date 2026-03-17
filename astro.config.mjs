@@ -6,7 +6,6 @@ export default defineConfig({
     defaultLocale: 'ja',
     locales: ['ja', 'en', 'ko'],
     routing: {
-      // ↓ この1行を必ず追加してください
       strategy: 'prefix', 
       prefixDefaultLocale: true,
       fallbackType: 'redirect',
