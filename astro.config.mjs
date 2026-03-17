@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  // ↓ ここに redirects を追加します
   redirects: {
     '/': '/ja/',
   },
