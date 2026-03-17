@@ -1,17 +1,13 @@
 ---
 // src/components/Front/Contents.astro
-// 【修正1】import { Image } を削除
 import ViewMoreBtn from "../Parts/ViewMoreBtn.astro";
 
-const url = new URL(Astro.request.url);
-const urlLocale = url.searchParams.get('lang') || 'ja';
+const { t, locale } = Astro.props;
 
-const { t: propsT, locale: propsLocale } = Astro.props;
-const locale = urlLocale; 
-const t = propsT;
-
-const l = (path: string) =>
-  locale === 'ja' ? path : `${path}?lang=${locale}`;
+const l = (path: string) => {
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return `/${locale}${cleanPath}`.replace(/\/+$/, '/').replace(/\/+/g, '/');
+};
 
 const image1 = "/images/front/image1.webp";
 const image2 = "/images/front/image2.webp";
@@ -80,11 +76,11 @@ const arrow2 = "/images/front/arrow2.webp";
     <div class="front-container z-10">
       <h2 class="section-title mb-7 px-4 md:px-0" data-animation="slideUp">company</h2>
       
-      <p class="border-text text-base sm:text-lg mb-16 translate-x-4">
-        <span data-animation="slideLeft">
+      <p class="border-text text-base sm:text-lg mb-16 md:translate-x-4 break-words whitespace-normal">
+        <span data-animation="slideLeft" class="block max-w-full">
           {t.home.title_company}
           {locale === 'ja' && t.home.title_company_jp && (
-            <span class="ml-2 text-[0.85em] font-medium opacity-90">
+            <span class="block md:inline-block md:ml-2 text-[0.85em] font-medium opacity-90">
               {t.home.title_company_jp}
             </span>
           )}
@@ -118,12 +114,7 @@ const arrow2 = "/images/front/arrow2.webp";
     &.left { @apply lg:pl-[283px] ml-auto; }
     &.right { @apply lg:pl-[81px] mr-auto; }
   }
-  .border-text {
-    @apply relative text-lg font-bold [--border-position:2rem] md:[--border-position:4.875rem] ml-[calc(var(--border-position)+1rem)] md:ml-[calc(var(--border-position)+5%)];
-    &::before {
-      @apply content-[""] w-[var(--border-position)] h-px bg-[#020202] absolute -left-[calc(var(--border-position)+1rem)] top-0 bottom-0 m-auto;
-    }
-  }
+
   :is(.overview) {
     @apply grid place-content-center h-[370px] w-full bg-center max-h-[370px] relative text-white text-center uppercase overflow-hidden;
   }
