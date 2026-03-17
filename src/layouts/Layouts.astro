@@ -4,137 +4,120 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
-  ogImage?: string;
-  ogType?: string;
 }
 
-const {
-  title,
-  description,
-  ogImage = "/images/og_default.webp",
-  ogType = "website",
-} = Astro.props;
+const { title, description = "Shop Kloset Inc.公式サイト。ブランド情報、プロジェクト、ニュースなどを紹介。" } = Astro.props;
 
-// 対応ロケールの定義
-const SUPPORTED_LOCALES = ["ja", "en", "ko"] as const;
-type Locale = typeof SUPPORTED_LOCALES[number];
-
-// 現在のURL情報を取得
-const url = new URL(Astro.request.url);
+const locale = Astro.currentLocale || "ja"; 
 const { pathname } = Astro.url;
 
-// locale の安全な取得（想定外の値は ja にフォールバック）
-const rawLocale = url.searchParams.get("lang") ?? "ja";
-const locale: Locale = (SUPPORTED_LOCALES as readonly string[]).includes(rawLocale)
-  ? (rawLocale as Locale)
-  : "ja";
+const isHome = pathname === `/${locale}/` || pathname === `/${locale}`;
 
-const isHome = pathname === "/";
-
-const SITE_URL = "https://shopkloset.com";
-
-// canonical URL（クエリパラメータなし）
-const canonicalURL = new URL(pathname, SITE_URL).href;
-
-// hreflang URL生成（ja はパラメータなし、それ以外は ?lang= を付与）
-const getHreflang = (lang: string) => {
-  const newUrl = new URL(pathname, SITE_URL);
-  if (lang !== "ja") {
-    newUrl.searchParams.set("lang", lang);
-  } else {
-    newUrl.searchParams.delete("lang");
-  }
-  return newUrl.href;
-};
-
-const hreflangURLs = {
-  ja: getHreflang("ja"),
-  en: getHreflang("en"),
-  ko: getHreflang("ko"),
-};
-
-// og:locale マッピング
-const ogLocaleMap: Record<Locale, string> = {
-  ja: "ja_JP",
-  en: "en_US",
-  ko: "ko_KR",
-};
-
-// 言語別デフォルトテキスト
-const defaults: Record<Locale, { title: string; description: string }> = {
-  ja: { title: "Shop Kloset Inc.", description: "Shop Kloset Inc.の公式サイトです。" },
-  en: { title: "Shop Kloset Inc.", description: "Welcome to the official site of Shop Kloset Inc." },
-  ko: { title: "Shop Kloset Inc.", description: "Shop Kloset Inc. 공식 사이트입니다." },
-};
-
-const metaTitle = title ?? defaults[locale].title;
-const metaDescription = description ?? defaults[locale].description;
-const ogImageURL = new URL(ogImage, SITE_URL).href;
+const siteUrl = "https://shopkloset.com";
+const canonical = `${siteUrl}${pathname}`;
 ---
 
 <html lang={locale}>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
 
-    {/* ヒーロー画像の先行読み込み（パフォーマンス向上） */}
-    {isHome && (
-      <link
-        rel="preload"
-        as="image"
-        href="/images/pc_hero.webp"
-        imagesrcset="/images/sp_hero.webp 1080w, /images/tablet_hero.webp 1536w, /images/pc_hero.webp 2560w"
-        imagesizes="100vw"
-      />
-    )}
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="generator" content={Astro.generator} />
 
-    <meta name="generator" content={Astro.generator} />
+<title>{title ? `${title} | Shop Kloset Inc.` : "Shop Kloset Inc. Official Website"}</title>
+<meta name="description" content={description} />
 
-    {/* 基本SEO */}
-    <title>{metaTitle}</title>
-    <meta name="description" content={metaDescription} />
-    <meta name="robots" content="index, follow" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#000000" />
 
-    {/* canonical */}
-    <link rel="canonical" href={canonicalURL} />
+<link rel="canonical" href={canonical} />
 
-    {/* hreflang */}
-    <link rel="alternate" hreflang="ja" href={hreflangURLs.ja} />
-    <link rel="alternate" hreflang="en" href={hreflangURLs.en} />
-    <link rel="alternate" hreflang="ko" href={hreflangURLs.ko} />
-    <link rel="alternate" hreflang="x-default" href={hreflangURLs.ja} />
+<link rel="alternate" hreflang="ja" href={`${siteUrl}/ja${pathname.replace(/^\/(ja|en|ko)/, '')}`} />
+<link rel="alternate" hreflang="en" href={`${siteUrl}/en${pathname.replace(/^\/(ja|en|ko)/, '')}`} />
+<link rel="alternate" hreflang="ko" href={`${siteUrl}/ko${pathname.replace(/^\/(ja|en|ko)/, '')}`} />
+<link rel="alternate" hreflang="x-default" href={`${siteUrl}/ja/`} />
 
-    {/* OGP */}
-    <meta property="og:title" content={metaTitle} />
-    <meta property="og:description" content={metaDescription} />
-    <meta property="og:type" content={ogType} />
-    <meta property="og:url" content={new URL(Astro.request.url).href} />
-    <meta property="og:image" content={ogImageURL} />
-    <meta property="og:locale" content={ogLocaleMap[locale]} />
-    <meta property="og:site_name" content="Shop Kloset Inc." />
+<!-- OGP -->
+<meta property="og:site_name" content="Shop Kloset Inc." />
+<meta property="og:title" content={title || "Shop Kloset Inc."} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content="https://shopkloset.com/og-image.jpg" />
 
-    {/* Twitter Card */}
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={metaTitle} />
-    <meta name="twitter:description" content={metaDescription} />
-    <meta name="twitter:image" content={ogImageURL} />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@ShopKloset" />
+<meta name="twitter:title" content={title || "Shop Kloset Inc."} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content="https://shopkloset.com/og-image.jpg" />
 
-    {/* ファビコン */}
-    <link rel="icon" type="image/svg+xml" href="/skinc_favicon.svg" />
-    <link rel="alternate icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/skinc_favicon-256.png" />
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/skinc_favicon.svg" />
+<link rel="alternate icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/skinc_favicon-256.png" />
 
-    {/* フォント */}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Montserrat:wght@400;700;900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body class:list={[{ home: isHome }]}>
-    <slot name="header" />
-    <slot />
-    <slot name="footer" />
-  </body>
+<!-- DNS Prefetch -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+<!-- Preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+
+<!-- Organization Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "Shop Kloset Inc.",
+ "url": "https://shopkloset.com/",
+ "logo": "https://shopkloset.com/skinc_favicon-256.png",
+ "description": "Shop Kloset Inc. Official Website",
+ "foundingDate": "2021-01",
+ "founder": {
+   "@type": "Person",
+   "name": "Kuniyuki Sakurai"
+ },
+ "address": {
+   "@type": "PostalAddress",
+   "streetAddress": "1-16-7",
+   "addressLocality": "Jinnan, Shibuya-ku",
+   "addressRegion": "Tokyo",
+   "postalCode": "150-0041",
+   "addressCountry": "JP"
+ },
+ "sameAs": [
+   "https://www.instagram.com/shopkloset_official",
+   "https://www.tiktok.com/@shopkloset_official",
+   "https://x.com/ShopKloset",
+   "https://www.youtube.com/@ShopKloset"
+ ]
+}
+</script>
+
+<!-- WebSite Schema -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "name": "Shop Kloset Inc.",
+ "url": "https://shopkloset.com/"
+}
+</script>
+
+</head>
+
+<body class:list={[{ home: isHome }]}>
+
+<slot name="header" />
+
+<slot />
+
+<slot name="footer" />
+
+</body>
 </html>
