@@ -2,13 +2,21 @@
 import NavItems from "../Parts/NavItems.astro";
 
 const { t, locale } = Astro.props;
-const l = (path: string) => locale === 'ja' ? path : `${path}?lang=${locale}`;
+
+const l = (path: string) => {
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return `/${locale}${cleanPath}`.replace(/\/+$/, '/').replace(/\/+/g, '/');
+};
 
 const { pathname } = Astro.url;
-const isHome = pathname === "/" || pathname === "";
+
+const isHome = pathname === `/${locale}/` || pathname === `/${locale}`;
 const defaultColor = isHome ? "#654321" : "#5C524A";
 
-const switchL = (lang: string) => `${pathname}?lang=${lang}`;
+const switchL = (newLang: string) => {
+  const currentPathWithoutLang = pathname.replace(/^\/(ja|en|ko)/, '');
+  return `/${newLang}${currentPathWithoutLang || '/'}`;
+};
 ---
 
 <header class="main-header w-full fixed top-0 left-0 z-50 pt-6 pb-2" id="main-header">
