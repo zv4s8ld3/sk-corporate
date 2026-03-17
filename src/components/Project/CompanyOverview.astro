@@ -1,5 +1,4 @@
 ---
-// 親コンポーネントから受け取るpropsの定義
 interface Props {
   t: any;
   locale: string;
@@ -7,10 +6,8 @@ interface Props {
 
 const { t, locale } = Astro.props;
 
-// JSONからデータを取得
 const company = t?.company || {};
 const home = t?.home || {};
-// ここで "privacy" という変数に中身を入れています
 const privacy = t?.privacy || t?.privacy_policy || { content1: "", content2: "", content3: "" };
 
 const fieldContents = [
@@ -75,9 +72,9 @@ const fieldContents = [
     <div class="text-center mt-10">
       {privacy.content1} 
       <a
-        class="text-link-color-blue hover:text-blue-800 underline"
-        href={locale === "ja" ? "/privacypolicy" : `/privacypolicy?lang=${locale}`}
-      >
+  class="text-link-color-blue hover:text-blue-800 underline"
+  href={`/${locale}/privacypolicy/`}
+>
         {privacy.content2}
       </a>
       {privacy.content3}
