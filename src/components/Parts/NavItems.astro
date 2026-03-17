@@ -8,7 +8,11 @@ interface Props {
 }
 
 const { clr = "#5C524A", flow, t, locale, isSp = false } = Astro.props;
-const l = (path: string) => `${path}?lang=${locale}`;
+
+const l = (path: string) => {
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return `/${locale}${cleanPath}`.replace(/\/+$/, '/').replace(/\/+/g, '/');
+};
 
 const navItems = [
   { text: "home", href: "/" },
