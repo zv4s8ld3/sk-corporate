@@ -1,11 +1,16 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-import vercel from '@astrojs/vercel';
 
 export default defineConfig({
-  output: 'server',
+  i18n: {
+    defaultLocale: 'ja',
+    locales: ['ja', 'en', 'ko'],
+    routing: {
+      prefixDefaultLocale: true,
+      fallbackType: 'redirect',
+    },
+  },
   vite: {
     plugins: [tailwindcss()]
   },
-  adapter: vercel()
 });
