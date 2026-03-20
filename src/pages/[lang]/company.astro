@@ -15,6 +15,11 @@ import SectionHeaderTitle2 from "../../components/Project/SectionHeaderTitle2.as
 import Layouts from "../../layouts/Layouts.astro";
 import "../../styles/front.css";
 
+// 画像最適化のためのインポート
+import { Image } from "astro:assets";
+import companyImg from "../../assets/images/common/company.webp";
+import headerArrowImg from "../../assets/images/common/header_arrow.webp";
+
 import ja from "../../locales/ja/translation.json";
 import en from "../../locales/en/translation.json";
 import ko from "../../locales/ko/translation.json";
@@ -36,17 +41,17 @@ const t = locales[locale];
         subTitle="company"
         titleClass="text-[clamp(2rem,1.3rem+3vw,4rem)]"
       >
-        <img
+        <Image
           slot="img"
-          src="/images/common/company.webp"
+          src={companyImg}
           alt=""
           class="max-h-full h-full w-auto object-cover ml-auto my-auto relative z-10 mask-gradient"
           data-animation="slideRight"
         />
       </SectionHeaderTitle2>
 
-      <img
-        src="/images/common/header_arrow.webp"
+      <Image
+        src={headerArrowImg}
         alt=""
         class="absolute top-[25%] right-[10%] -translate-y-1/2 translate-x-1/3 z-0 w-[56%] h-auto"
         data-animation="slideLeft"
