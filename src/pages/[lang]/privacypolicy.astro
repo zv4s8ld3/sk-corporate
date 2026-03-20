@@ -13,6 +13,10 @@ import Footer from "../../components/Project/Footer.astro";
 import SectionHeaderTitle2 from "../../components/Project/SectionHeaderTitle2.astro";
 import "../../styles/front.css";
 
+import { Image } from "astro:assets";
+import image6Img from "../../assets/images/common/image6.webp";
+import headerArrowImg from "../../assets/images/common/header_arrow.webp";
+
 import PrivacyJa from "../../components/Project/privacypolicy/PrivacyJa.astro";
 import PrivacyEn from "../../components/Project/privacypolicy/PrivacyEn.astro";
 import PrivacyKo from "../../components/Project/privacypolicy/PrivacyKo.astro";
@@ -46,17 +50,17 @@ const t = locales[locale];
         </span>
       </div>
 
-      <img
+      <Image
         slot="img"
-        src="/images/common/image6.webp"
+        src={image6Img}
         alt=""
         class="max-h-full h-full w-auto object-cover ml-auto my-auto relative z-10"
         data-animation="slideRight"
       />
     </SectionHeaderTitle2>
 
-    <img
-      src="/images/common/header_arrow.webp"
+    <Image
+      src={headerArrowImg}
       alt=""
       class="absolute top-[25%] right-[10%] -translate-y-1/2 translate-x-1/3 z-20 w-[56%] h-auto"
       data-animation="slideLeft"
