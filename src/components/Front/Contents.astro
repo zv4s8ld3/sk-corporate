@@ -2,24 +2,26 @@
 // src/components/Front/Contents.astro
 import ViewMoreBtn from "../Parts/ViewMoreBtn.astro";
 
+// 1. AstroのImageコンポーネントと画像をインポート
+import { Image } from "astro:assets";
+import image1Img from "../../assets/images/front/image1.webp";
+import image2Img from "../../assets/images/front/image2.webp";
+import arrow1Img from "../../assets/images/front/arrow1.webp";
+import arrow2Img from "../../assets/images/front/arrow2.webp";
+
 const { t, locale } = Astro.props;
 
 const l = (path: string) => {
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
   return `/${locale}${cleanPath}`.replace(/\/+$/, '/').replace(/\/+/g, '/');
 };
-
-const image1 = "/images/front/image1.webp";
-const image2 = "/images/front/image2.webp";
-const arrow1 = "/images/front/arrow1.webp";
-const arrow2 = "/images/front/arrow2.webp";
 ---
 
 <div class="contents-wrapper pt-32 pb-6 md:pt-32 md:pb-6 relative overflow-hidden">
   <section class="front-container lg:mb-24" id="about">
     <div class="relative">
-      <img
-        src={image1}
+      <Image
+        src={image1Img}
         alt=""
         class="section-img left z-20"
         data-animation="slideLeft"
@@ -35,8 +37,8 @@ const arrow2 = "/images/front/arrow2.webp";
         </div>
       </div>
     </div>
-    <img
-      src={arrow1}
+    <Image
+      src={arrow1Img}
       alt=""
       class="absolute top-[13%] -left-[50%] -z-10 -translate-y-1/2"
       data-animation="slideLeft"
@@ -45,8 +47,8 @@ const arrow2 = "/images/front/arrow2.webp";
 
   <section class="front-container md:mb-28" id="business">
     <div class="relative">
-      <img
-        src={image2}
+      <Image
+        src={image2Img}
         alt=""
         class="section-img right z-20"
         data-animation="slideRight"
@@ -67,8 +69,8 @@ const arrow2 = "/images/front/arrow2.webp";
   </section>
 
   <section class="bg-[#F6F6F6] pt-20 md:py-20" id="company">
-    <img
-      src={arrow2}
+    <Image
+      src={arrow2Img}
       alt=""
       class="mix-arrow"
       data-animation="slideRight"
@@ -119,7 +121,8 @@ const arrow2 = "/images/front/arrow2.webp";
     @apply grid place-content-center h-[370px] w-full bg-center max-h-[370px] relative text-white text-center uppercase overflow-hidden;
   }
   .overview {
-    background-image: url('/images/image3.webp');
+    /* 画像移動先に合わせてパスを修正 */
+    background-image: url('../../assets/images/front/image3.webp');
     @apply bg-[#020202]/40 bg-cover bg-blend-darken;
   }
   .mix-arrow {
