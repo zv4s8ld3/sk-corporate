@@ -9,13 +9,11 @@
   "business": {
     "layout_title": "우리가 지금까지 쌓아온 단어의 힘으로\n사람들의 잠재력을 극대화합니다",
     "content_title": "기술의 급격한 성장과 함께 편리한 세상이 되었습니다.\n그 반면, 마음이 피곤한 분들이 증가하고 있는 것도 사실입니다.\n우리는 여러분의 마음이 안정되고 미소를 끊지 않는 나날을 만들기 위해\n모든 것에 계속 도전합니다.",
-    "sub_title_list": "모바일 앱 개발 사업",
-    "title_list_1": "자사 서비스\n애플리케이션의 기획·운영",
-    "title_list_2": "애플리케이션 기획",
-    "title_list_3": "애플리케이션 운영",
-    "comments_list_1": "Shop Kloset은 일본 사회에 존재하는 다양한 과제를 해결하고 싶다는 생각에서 플랫폼 사업을 전개하고 있습니다.\n유저 퍼스트를 내걸어 모든 고객에게 가치있는 서비스를 제공합니다.",
-    "comments_list_2": "당사에서는 애플리케이션의 기획, 운영을 실시하고 있습니다. 기획에서는 과제를 도출하고, 고민을 안고 있는 고객의 시점에 서서 과제를 해결하기 위한 애플리케이션 유저빌리티 향상을 도모합니다.",
-    "comments_list_3": "운영에서는 자사 서비스를 이용하는 고객의 만족도를 극대화하기 위한 분석을 실시하고 있습니다.\n고객의 목소리와 데이터를 바탕으로 서비스의 품질 향상을 도모합니다."
+    "sub_title_list": "모델 에이전시 사업",
+    "title_list_1": "일본 국내 거주 다재다능한 모델의\n매니지먼트 및 에이전트",
+    "title_list_2": "해외 거주 다재다능한 모델의\n에이전트",
+    "comments_list_1": "Shop Kloset은 꿈을 이루고 싶거나 꿈을 포기했던 모델 여러분에게 힘이 되고 싶다는 마음으로 Fairy Models Agency 사업을 새롭게 출범하여 모델의 꿈을 지원합니다.",
+    "comments_list_2": "Fairy Models Agency 사업에서는 일본 국내뿐만 아니라 해외 거주 모델의 일본 내 활동도 응원하고 있습니다."
   },
   "common": {
     "layout_title": "Shop Kloset Inc.",
@@ -35,19 +33,19 @@
     "field_money": "자본금",
     "field_contact": "본사 소재지",
     "field_content": "사업 내용",
-    "content_money": "10,000,000(JPY)",
+    "content_money": "1,000만 엔",
     "content_contact": "〒150-0041 도쿄도 시부야구 진난 1-16-7<br />일본 도쿄도 공안위원회 고물상 허가 제 303272419438호",
     "content_business": {
-      "content_1": "앱 「ShopKloset」 각종 운영·관리",
-      "content_2": "상표 등록 완료",
-	  "content_3": "일본은 물론, 세계 상표 등록 완료 / 세계 특허 출원 중",
+      "content_1": "앱<br />「ShopKloset」 각종 운영·관리",
+      "content_2": "모델 에이전시<br />「<a href=\"https://fairy-models.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Fairy Models Agency</a>」 운영",
+      "content_3": "일본뿐만 아니라 세계 상표 등록 완료 / 세계 특허 출원 중",
       "content_4": "전기통신사업 신고 완료"
     },
     "field_tel": "전화번호",
     "content_tel": "03-3463-3818",
     "field_mail": "이메일 주소",
     "content_mail": "info@shopkloset.com",
-    "content_service": "하이 브랜드 전문 앱\n하이 브랜드 상품·시계·주얼리를 당신이 있는 곳에서 전 세계로 판매할 수 있습니다",
+    "content_service": "모델 에이전시 「Fairy Models Agency」 운영<br />국내뿐만 아니라 해외 모델이 소속된 에이전시",
     "name_app": "「ShopKloset」"
   },
   "privacy_policy": {
@@ -60,7 +58,8 @@
     "sub_title": "Dream the best dream<br />with the best team",
     "title_about": "우리가 실현하는 것",
     "title_business": "우리가 지금까지 쌓아온 단어의 힘으로\n사람들의 잠재력을 극대화합니다",
-    "title_company": "Shop Kloset Inc.",
+    "title_company": "Shop Kloset Inc. (Shop Kloset 주식회사)",
+    "title_company_full": "Shop Kloset 주식회사",
     "content_about": "우리 Shop Kloset이 실현하는 것은, 사람들의 숨겨진 가능성을 이끌어 보다 풍부한 인생을 만드는 것. 모든 사람들이 미소 넘치는 세상에 하기 위해 일절 노력을 아끼지 않고, 가능성에 넘치는 일본 사회를 창출합니다.",
     "content_business": "기술의 급격한 성장과 함께 편리한 세상이 되었습니다. 그 반면, 마음이 피곤한 분들이 증가하고 있는 것도 사실입니다. 우리는 여러분의 마음이 안정되고 미소를 끊지 않는 나날을 만들기 위해 모든 것에 계속 도전합니다.",
     "content_company": "회사 개요"
