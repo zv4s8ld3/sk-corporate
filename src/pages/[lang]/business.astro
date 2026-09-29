@@ -1,10 +1,10 @@
 ---
 export function getStaticPaths() {
-return [
-{ params: { lang: "ja" } },
-{ params: { lang: "en" } },
-{ params: { lang: "ko" } }
-];
+  return [
+    { params: { lang: "ja" } },
+    { params: { lang: "en" } },
+    { params: { lang: "ko" } }
+  ];
 }
 
 import Layouts from "../../layouts/Layouts.astro";
@@ -19,7 +19,6 @@ import headerBusinessImg from "../../assets/images/common/header_business.webp";
 import headerArrowImg from "../../assets/images/common/header_arrow.webp";
 import business1Img from "../../assets/images/common/business1.webp";
 import business2Img from "../../assets/images/common/business2.webp";
-import business3Img from "../../assets/images/common/business3.webp";
 
 import ja from "../../locales/ja/translation.json";
 import en from "../../locales/en/translation.json";
@@ -42,11 +41,6 @@ const business = [
     title: t.business.title_list_2,
     img: business2Img,
     comments: t.business.comments_list_2,
-  },
-  {
-    title: t.business.title_list_3,
-    img: business3Img,
-    comments: t.business.comments_list_3,
   },
 ];
 ---
@@ -97,7 +91,7 @@ const business = [
                 <Image
                   src={el.img}
                   class="w-full h-auto object-cover"
-                  alt={el.title}
+                  alt={el.title || ""}
                   data-animation="slideDown"
                 />
               </div>
