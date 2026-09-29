@@ -8,12 +8,10 @@ const { t } = Astro.props;
 // パスを「ドットなし」の絶対パスに戻します
 const businessImg1 = "/images/common/business1.webp";
 const businessImg2 = "/images/common/business2.webp";
-const businessImg3 = "/images/common/business3.webp";
 
 const business = [
   { title: t.business.title_list_1, img: businessImg1, comments: t.business.comments_list_1 },
   { title: t.business.title_list_2, img: businessImg2, comments: t.business.comments_list_2 },
-  { title: t.business.title_list_3, img: businessImg3, comments: t.business.comments_list_3 },
 ];
 ---
 
@@ -33,7 +31,7 @@ const business = [
           <img
             src={el.img}
             class="w-full h-auto"
-            alt={el.title}
+            alt={el.title || ""}
             loading="lazy"
             decoding="async"
             data-animation="slideDown"
