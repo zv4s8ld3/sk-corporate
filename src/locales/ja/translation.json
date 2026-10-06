@@ -44,7 +44,8 @@
     "content_tel": "03-3463-3818",
     "field_mail": "メールアドレス",
     "content_mail": "info@shopkloset.com",
-    "content_service": "モデルエージェンシー「Fairy Models Agency（フェアリーモデルズエージェンシー）」の運営\n国内に限らず海外のモデルが所属するエージェンシー",
+    "content_service": "モデルエージェンシー「Fairy Models Agency（フェアリーモデルズエージェンシー）」の運営<br />国内に限らず海外のモデルが所属するエージェンシー",
+    "name_app": "「ShopKloset（ショップクローゼット）」"
   },
   "privacy_policy": {
     "content1": "プライバシーポリシーは",
