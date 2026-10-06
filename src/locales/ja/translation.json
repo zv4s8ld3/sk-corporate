@@ -34,10 +34,10 @@
     "field_contact": "本社所在地",
     "field_content": "事業内容",
     "content_money": "1,000万円",
-    "content_contact": "〒150-0041 東京都渋谷区神南1丁目16番7号<br />古物商免許 東京都公安委員会 第 303272419438 号",
+    "content_contact": "〒150-0041 東京都渋谷区神南1丁目16番7号\n古物商免許 東京都公安委員会 第 303272419438 号",
     "content_business": {
-      "content_1": "アプリ<br />「ShopKloset（ショップクローゼット）」各種運営・管理",
-      "content_2": "モデルエージェンシー<br />「<a href=\"https://fairy-models.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Fairy Models Agency（フェアリーモデルズエージェンシー）</a>」の運営",
+      "content_1": "アプリ\n「ShopKloset（ショップクローゼット）」各種運営・管理",
+      "content_2": "モデルエージェンシー\n「<a href=\"https://fairy-models.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Fairy Models Agency（フェアリーモデルズエージェンシー）</a>」の運営",
       "content_3": "日本のみならず、世界商標登録済 世界特許出願中",
       "content_4": "電気通信事業届出済み"
     },
@@ -45,7 +45,7 @@
     "content_tel": "03-3463-3818",
     "field_mail": "メールアドレス",
     "content_mail": "info@shopkloset.com",
-    "content_service": "モデルエージェンシー「Fairy Models Agency（フェアリーモデルズエージェンシー）」の運営<br />国内に限らず海外のモデルが所属するエージェンシー",
+    "content_service": "モデルエージェンシー「Fairy Models Agency（フェアリーモデルズエージェンシー）」の運営\n国内に限らず海外のモデルが所属するエージェンシー",
     "name_app": "「ShopKloset（ショップクローゼット）」"
   },
   "privacy_policy": {
