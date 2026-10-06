@@ -1,28 +1,28 @@
 {
   "about": {
-    "layout_title": "What We Realize",
-    "content_title": "What Shop Kloset realizes is to bring out people's hidden potential\nand create a richer life.\nWe spare no effort to make the world full of smiles,\nand create a Japanese society full of possibilities.",
-    "vision_comments": "Enriching each person's life through apps and people to address various modern challenges",
-    "mission_comments": "Life is wonderful and beautiful.",
-    "value_comments": "In order to create a better society where people and all living things can be happy,\nwe will never settle for the status quo, make no compromises, and always think and act one step ahead to realize it."
+    "layout_title": "What we will achieve",
+    "content_title": "At Shop Kloset, we aim to bring out people's hidden potential and create a richer life.\nWe will spare no effort to create a world full of smiles for all people,\nand create a Japanese society overflowing with possibilities.",
+    "vision_comments": "Through apps and people, we enrich each person's life by addressing various modern challenges.",
+    "mission_comments": "Life is wonderfully beautiful.",
+    "value_comments": "To build a better society where people and all living things can find happiness,\nwe will not rest on past achievements, we will not compromise, we will always look one step ahead, take action, and realize this vision."
   },
   "business": {
-    "layout_title": "Maximizing people's potential through\nthe power of words we have built up so far",
-    "content_title": "Along with the rapid growth of technology, the world has become convenient.\nOn the other hand, it is also true that the number of people with tired hearts is increasing.\nWe continue to challenge everything to create days where your hearts are at peace and smiles never cease.",
+    "layout_title": "We use the power of words we have cultivated to\nmaximize people's potential.",
+    "content_title": "Rapid advances in technology have made the world more convenient.\nHowever, it is also true that the number of people suffering from mental fatigue is increasing.\nWe will continue to take on every challenge to help people achieve mental stability and live lives that bring smiles to their faces every day.",
     "sub_title_list": "Model Agency Business",
-    "title_list_1": "Management and agency for versatile models\nresiding in Japan",
-    "title_list_2": "Agency for versatile models\nresiding overseas",
-    "comments_list_1": "Shop Kloset launched the Fairy Models Agency business to support the dreams of models who want to realize their dreams or who had given up on them.",
-    "comments_list_2": "The Fairy Models Agency business supports activities in Japan for models residing not only in Japan but also overseas."
+    "title_list_1": "Management and agency for\na diverse range of models residing in Japan",
+    "title_list_2": "Agency for\na diverse range of models residing overseas",
+    "comments_list_1": "Driven by our desire to support models who want to fulfill their dreams or who once gave up on them, Shop Kloset has established the Fairy Models Agency business to help support their modeling dreams.",
+    "comments_list_2": "Through Fairy Models Agency, we support not only models in Japan, but also overseas models looking to work in Japan."
   },
   "common": {
     "layout_title": "Shop Kloset Inc.",
     "contact": "1-16-7 Jinnan, Shibuya-ku, Tokyo 150-0041",
     "required": "Required",
     "title_about": "Shop Kloset Inc. | About Us",
-    "title_business": "Shop Kloset Inc. | Business Activities",
-    "title_company": "Shop Kloset Inc. | Company Overview",
-    "title_contact": "Shop Kloset Inc. | Contact Us",
+    "title_business": "Shop Kloset Inc. | Business",
+    "title_company": "Shop Kloset Inc. | Company",
+    "title_contact": "Shop Kloset Inc. | Contact",
     "title_faq": "Shop Kloset Inc. | FAQ"
   },
   "company": {
@@ -47,39 +47,39 @@
     "name_app": "\"ShopKloset\""
   },
   "privacy_policy": {
-    "content1": "Please check the Privacy Policy ",
-    "content2": "here",
-    "content3": "."
+    "content1": "Please check our ",
+    "content2": "Privacy Policy",
+    "content3": " here."
   },
   "home": {
-    "layout_title": "A society that takes pride in\nthe \"medals\" that everyone worked hard for",
-    "sub_title": "Dream the best dream\nwith the best team",
-    "title_about": "What We Realize",
-    "title_business": "Maximizing people's potential through\nthe power of words we have built up so far",
+    "layout_title": "Proof that everyone worked hard,\nToward a society where medals can be a source of pride",
+    "sub_title": "Dream the best dream<br />with the best team",
+    "title_about": "What we will achieve",
+    "title_business": "We use the power of words we have cultivated to\nmaximize people's potential.",
     "title_company": "Shop Kloset Inc.",
     "title_company_full": "Shop Kloset Inc.",
-    "content_about": "What Shop Kloset realizes is to bring out people's hidden potential and create a richer life. We spare no effort to make the world full of smiles, and create a Japanese society full of possibilities.",
-    "content_business": "Along with the rapid growth of technology, the world has become convenient. On the other hand, it is also true that the number of people with tired hearts is increasing. We continue to challenge everything to create days where your hearts are at peace and smiles never cease.",
+    "content_about": "At Shop Kloset, we aim to bring out people's hidden potential and create a richer life. We will spare no effort to create a world full of smiles for all people, and create a Japanese society overflowing with possibilities.",
+    "content_business": "Rapid advances in technology have made the world more convenient. However, it is also true that the number of people suffering from mental fatigue is increasing. We will continue to take on every challenge to help people achieve mental stability and live lives that bring smiles to their faces every day.",
     "content_company": "Company Overview"
   },
   "contact": {
-    "layout_title": "Contact Us",
+    "layout_title": "Contact",
     "inquiry_form": "Inquiry Form",
-    "your_name": "Name",
-    "your_name_placeholder": "e.g.) Sakurako Tanaka",
-    "email": "Email",
-    "email_placeholder": "e.g.) xxx@shopkloset.com",
-    "content_of_inquiry": "Content of Inquiry",
-    "seclect_content_of_inquiry": "Select Category",
+    "your_name": "Your Name",
+    "your_name_placeholder": "e.g. Sakurako Tanaka",
+    "email": "Email Address",
+    "email_placeholder": "e.g. xxx@shopkloset.com",
+    "content_of_inquiry": "Inquiry Details",
+    "seclect_content_of_inquiry": "Select content",
     "comments": "Comments / Questions",
-    "comments_placeholder": "Please enter your message",
-    "accept": "I agree to the Terms of Service and Privacy Policy",
+    "comments_placeholder": "Enter your inquiry",
+    "accept": "I agree to the Terms of Use and Privacy Policy",
     "send": "Send",
     "options": [
-      "Unable to log in",
-      "Regarding account suspension",
-      "Regarding payment",
-      "Others"
+      "Cannot login",
+      "About account suspension",
+      "About payment",
+      "Other"
     ]
   }
 }
