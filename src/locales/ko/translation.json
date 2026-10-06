@@ -34,10 +34,10 @@
     "field_contact": "본사 소재지",
     "field_content": "사업 내용",
     "content_money": "1,000만 엔",
-    "content_contact": "〒150-0041 도쿄도 시부야구 진난 1-16-7<br />일본 도쿄도 공안위원회 고물상 허가 제 303272419438호",
+    "content_contact": "〒150-0041 도쿄도 시부야구 진난 1-16-7\n일본 도쿄도 공안위원회 고물상 허가 제 303272419438호",
     "content_business": {
-      "content_1": "앱<br />「ShopKloset」 각종 운영·관리",
-      "content_2": "모델 에이전시<br />「<a href=\"https://fairy-models.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Fairy Models Agency</a>」 운영",
+      "content_1": "앱\n「ShopKloset」 각종 운영·관리",
+      "content_2": "모델 에이전시\n「<a href=\"https://fairy-models.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Fairy Models Agency</a>」 운영",
       "content_3": "일본뿐만 아니라 세계 상표 등록 완료 / 세계 특허 출원 중",
       "content_4": "전기통신사업 신고 완료"
     },
@@ -45,7 +45,7 @@
     "content_tel": "03-3463-3818",
     "field_mail": "이메일 주소",
     "content_mail": "info@shopkloset.com",
-    "content_service": "모델 에이전시 「Fairy Models Agency」 운영<br />국내뿐만 아니라 해외 모델이 소속된 에이전시",
+    "content_service": "모델 에이전시 「Fairy Models Agency」 운영\n국내뿐만 아니라 해외 모델이 소속된 에이전시",
     "name_app": "「ShopKloset」"
   },
   "privacy_policy": {
@@ -55,7 +55,7 @@
   },
   "home": {
     "layout_title": "모두가 열심히 해온 증거,\n\"훈장\"을 자랑스럽게 생각하는 사회를",
-    "sub_title": "Dream the best dream<br />with the best team",
+    "sub_title": "Dream the best dream\nwith the best team",
     "title_about": "우리가 실현하는 것",
     "title_business": "우리가 지금까지 쌓아온 단어의 힘으로\n사람들의 잠재력을 극대화합니다",
     "title_company": "Shop Kloset Inc. (Shop Kloset 주식회사)",
